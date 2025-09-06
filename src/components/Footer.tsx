@@ -56,13 +56,13 @@ const Footer: React.FC = () => {
             </div>
 
             <div className="social-links">
-              <a href="#" aria-label="LinkedIn" className="social-link">
+              <a href="https://linkedin.com" aria-label="LinkedIn" className="social-link">
                 <span>💼</span>
               </a>
-              <a href="#" aria-label="Instagram" className="social-link">
+              <a href="https://instagram.com" aria-label="Instagram" className="social-link">
                 <span>📷</span>
               </a>
-              <a href="#" aria-label="Twitter" className="social-link">
+              <a href="https://twitter.com" aria-label="Twitter" className="social-link">
                 <span>🐦</span>
               </a>
             </div>

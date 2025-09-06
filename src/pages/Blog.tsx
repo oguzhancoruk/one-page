@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { mockBlogPosts, categories, getBlogPostsByCategory } from '../data/mockBlogData';
+import { categories, getBlogPostsByCategory } from '../data/mockBlogData';
 import './Blog.css';
 
 const Blog: React.FC = () => {
