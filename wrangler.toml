@@ -1,0 +1,5 @@
+name = "aleyna-didem-aydin-website"
+compatibility_date = "2025-01-09"
+
+[assets]
+directory = "./build"
