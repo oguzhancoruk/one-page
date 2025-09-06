@@ -1,0 +1,553 @@
+import React, { useState } from 'react';
+import './Appointment.css';
+
+interface AppointmentForm {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  birthDate: string;
+  gender: string;
+  sessionType: string;
+  preferredDate: string;
+  preferredTime: string;
+  alternativeDate: string;
+  alternativeTime: string;
+  previousTherapy: string;
+  currentMedication: string;
+  concerns: string;
+  emergencyContact: string;
+  emergencyPhone: string;
+  howDidYouHear: string;
+  consent: boolean;
+}
+
+const Appointment: React.FC = () => {
+  const [formData, setFormData] = useState<AppointmentForm>({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    birthDate: '',
+    gender: '',
+    sessionType: '',
+    preferredDate: '',
+    preferredTime: '',
+    alternativeDate: '',
+    alternativeTime: '',
+    previousTherapy: '',
+    currentMedication: '',
+    concerns: '',
+    emergencyContact: '',
+    emergencyPhone: '',
+    howDidYouHear: '',
+    consent: false
+  });
+
+  const [currentStep, setCurrentStep] = useState(1);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value, type } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: type === 'checkbox' ? (e.target as HTMLInputElement).checked : value
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    
+    // Simulate API call
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setSubmitSuccess(true);
+    }, 2000);
+  };
+
+  const nextStep = () => {
+    if (currentStep < 4) {
+      setCurrentStep(currentStep + 1);
+    }
+  };
+
+  const prevStep = () => {
+    if (currentStep > 1) {
+      setCurrentStep(currentStep - 1);
+    }
+  };
+
+  const renderStep1 = () => (
+    <div className="form-step">
+      <h3>Kişisel Bilgiler</h3>
+      <div className="form-row">
+        <div className="form-group">
+          <label htmlFor="firstName">Adınız *</label>
+          <input
+            type="text"
+            id="firstName"
+            name="firstName"
+            value={formData.firstName}
+            onChange={handleInputChange}
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="lastName">Soyadınız *</label>
+          <input
+            type="text"
+            id="lastName"
+            name="lastName"
+            value={formData.lastName}
+            onChange={handleInputChange}
+            required
+          />
+        </div>
+      </div>
+      
+      <div className="form-row">
+        <div className="form-group">
+          <label htmlFor="email">E-posta *</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            value={formData.email}
+            onChange={handleInputChange}
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="phone">Telefon *</label>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            value={formData.phone}
+            onChange={handleInputChange}
+            placeholder="0555 123 45 67"
+            required
+          />
+        </div>
+      </div>
+      
+      <div className="form-row">
+        <div className="form-group">
+          <label htmlFor="birthDate">Doğum Tarihi *</label>
+          <input
+            type="date"
+            id="birthDate"
+            name="birthDate"
+            value={formData.birthDate}
+            onChange={handleInputChange}
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="gender">Cinsiyet *</label>
+          <select
+            id="gender"
+            name="gender"
+            value={formData.gender}
+            onChange={handleInputChange}
+            required
+          >
+            <option value="">Seçiniz</option>
+            <option value="kadın">Kadın</option>
+            <option value="erkek">Erkek</option>
+            <option value="belirtmek-istemiyorum">Belirtmek İstemiyorum</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  );
+
+  const renderStep2 = () => (
+    <div className="form-step">
+      <h3>Randevu Tercihleri</h3>
+      
+      <div className="form-group">
+        <label htmlFor="sessionType">Seans Türü *</label>
+        <select
+          id="sessionType"
+          name="sessionType"
+          value={formData.sessionType}
+          onChange={handleInputChange}
+          required
+        >
+          <option value="">Seçiniz</option>
+          <option value="bireysel">Bireysel Terapi (₺800)</option>
+          <option value="cift">Çift Terapisi (₺1200)</option>
+          <option value="online">Online Terapi (₺700)</option>
+          <option value="acil">Acil Destek (₺400)</option>
+        </select>
+      </div>
+      
+      <div className="form-row">
+        <div className="form-group">
+          <label htmlFor="preferredDate">Tercih Edilen Tarih *</label>
+          <input
+            type="date"
+            id="preferredDate"
+            name="preferredDate"
+            value={formData.preferredDate}
+            onChange={handleInputChange}
+            min={new Date().toISOString().split('T')[0]}
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="preferredTime">Tercih Edilen Saat *</label>
+          <select
+            id="preferredTime"
+            name="preferredTime"
+            value={formData.preferredTime}
+            onChange={handleInputChange}
+            required
+          >
+            <option value="">Seçiniz</option>
+            <option value="09:00">09:00</option>
+            <option value="10:00">10:00</option>
+            <option value="11:00">11:00</option>
+            <option value="13:00">13:00</option>
+            <option value="14:00">14:00</option>
+            <option value="15:00">15:00</option>
+            <option value="16:00">16:00</option>
+            <option value="17:00">17:00</option>
+            <option value="18:00">18:00</option>
+          </select>
+        </div>
+      </div>
+      
+      <div className="form-row">
+        <div className="form-group">
+          <label htmlFor="alternativeDate">Alternatif Tarih</label>
+          <input
+            type="date"
+            id="alternativeDate"
+            name="alternativeDate"
+            value={formData.alternativeDate}
+            onChange={handleInputChange}
+            min={new Date().toISOString().split('T')[0]}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="alternativeTime">Alternatif Saat</label>
+          <select
+            id="alternativeTime"
+            name="alternativeTime"
+            value={formData.alternativeTime}
+            onChange={handleInputChange}
+          >
+            <option value="">Seçiniz</option>
+            <option value="09:00">09:00</option>
+            <option value="10:00">10:00</option>
+            <option value="11:00">11:00</option>
+            <option value="13:00">13:00</option>
+            <option value="14:00">14:00</option>
+            <option value="15:00">15:00</option>
+            <option value="16:00">16:00</option>
+            <option value="17:00">17:00</option>
+            <option value="18:00">18:00</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  );
+
+  const renderStep3 = () => (
+    <div className="form-step">
+      <h3>Sağlık ve Geçmiş Bilgileri</h3>
+      
+      <div className="form-group">
+        <label htmlFor="previousTherapy">Daha önce terapi aldınız mı? *</label>
+        <select
+          id="previousTherapy"
+          name="previousTherapy"
+          value={formData.previousTherapy}
+          onChange={handleInputChange}
+          required
+        >
+          <option value="">Seçiniz</option>
+          <option value="hayir">Hayır, ilk kez</option>
+          <option value="evet-devam">Evet, hala devam ediyor</option>
+          <option value="evet-bitti">Evet, tamamlandı</option>
+          <option value="evet-yarida">Evet, yarıda bıraktım</option>
+        </select>
+      </div>
+      
+      <div className="form-group">
+        <label htmlFor="currentMedication">Şu anda kullandığınız ilaçlar var mı? *</label>
+        <select
+          id="currentMedication"
+          name="currentMedication"
+          value={formData.currentMedication}
+          onChange={handleInputChange}
+          required
+        >
+          <option value="">Seçiniz</option>
+          <option value="hayir">Hayır</option>
+          <option value="evet-ruhsal">Evet, ruh sağlığı ile ilgili</option>
+          <option value="evet-fiziksel">Evet, fiziksel sağlık ile ilgili</option>
+          <option value="evet-her-ikisi">Evet, her ikisi</option>
+        </select>
+      </div>
+      
+      <div className="form-group">
+        <label htmlFor="concerns">Hangi konularda destek almak istiyorsunuz? *</label>
+        <textarea
+          id="concerns"
+          name="concerns"
+          value={formData.concerns}
+          onChange={handleInputChange}
+          rows={4}
+          placeholder="Anksiyete, depresyon, ilişki sorunları, travma, stres yönetimi vb."
+          required
+        />
+      </div>
+      
+      <div className="form-row">
+        <div className="form-group">
+          <label htmlFor="emergencyContact">Acil Durum İletişim Kişisi *</label>
+          <input
+            type="text"
+            id="emergencyContact"
+            name="emergencyContact"
+            value={formData.emergencyContact}
+            onChange={handleInputChange}
+            placeholder="Ad Soyad"
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="emergencyPhone">Acil Durum Telefonu *</label>
+          <input
+            type="tel"
+            id="emergencyPhone"
+            name="emergencyPhone"
+            value={formData.emergencyPhone}
+            onChange={handleInputChange}
+            placeholder="0555 123 45 67"
+            required
+          />
+        </div>
+      </div>
+    </div>
+  );
+
+  const renderStep4 = () => (
+    <div className="form-step">
+      <h3>Son Adım</h3>
+      
+      <div className="form-group">
+        <label htmlFor="howDidYouHear">Bizi nasıl duydunuz?</label>
+        <select
+          id="howDidYouHear"
+          name="howDidYouHear"
+          value={formData.howDidYouHear}
+          onChange={handleInputChange}
+        >
+          <option value="">Seçiniz</option>
+          <option value="google">Google Arama</option>
+          <option value="sosyal-medya">Sosyal Medya</option>
+          <option value="arkadas">Arkadaş Tavsiyesi</option>
+          <option value="doktor">Doktor Yönlendirmesi</option>
+          <option value="website">Website</option>
+          <option value="reklam">Reklam</option>
+          <option value="diger">Diğer</option>
+        </select>
+      </div>
+      
+      <div className="consent-section">
+        <div className="consent-item">
+          <input
+            type="checkbox"
+            id="consent"
+            name="consent"
+            checked={formData.consent}
+            onChange={handleInputChange}
+            required
+          />
+          <label htmlFor="consent">
+            <strong>Aydınlatma Metni ve Gizlilik Politikası</strong>
+            <p>
+              Kişisel verilerimin, Kişisel Verilerin Korunması Kanunu kapsamında, 
+              terapi hizmetlerinin sunulması amacıyla işleneceğini, saklanacağını ve 
+              üçüncü kişilerle paylaşılmayacağını kabul ediyorum. Verilerimin işlenmesine 
+              izin veriyorum. *
+            </p>
+          </label>
+        </div>
+        
+        <div className="info-boxes">
+          <div className="info-box">
+            <h4>📋 Randevu Süreci</h4>
+            <ul>
+              <li>Formunuz incelendikten sonra 24 saat içinde dönüş yapılacaktır</li>
+              <li>Uygun zaman dilimi için size telefon edilecektir</li>
+              <li>İlk görüşme 50 dakika sürmektedir</li>
+              <li>Randevu onayı e-posta ile gönderilecektir</li>
+            </ul>
+          </div>
+          
+          <div className="info-box">
+            <h4>💳 Ödeme Bilgileri</h4>
+            <ul>
+              <li>Ödeme seansın başında nakit veya kart ile yapılabilir</li>
+              <li>Online seanslar için havale/EFT kabul edilmektedir</li>
+              <li>İptal durumunda 24 saat önceden haber verilmelidir</li>
+              <li>Dekont/fatura verilmektedir</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+
+  if (submitSuccess) {
+    return (
+      <div className="appointment-page">
+        <div className="container">
+          <div className="success-message">
+            <div className="success-icon">✅</div>
+            <h2>Randevu Talebiniz Alındı!</h2>
+            <p>
+              Sayın <strong>{formData.firstName} {formData.lastName}</strong>, 
+              randevu talebiniz başarıyla iletildi. 24 saat içinde size dönüş yapılacaktır.
+            </p>
+            <div className="success-details">
+              <div className="detail-item">
+                <strong>Tercih Edilen Seans:</strong> {formData.sessionType}
+              </div>
+              <div className="detail-item">
+                <strong>Tercih Edilen Tarih:</strong> {formData.preferredDate}
+              </div>
+              <div className="detail-item">
+                <strong>Tercih Edilen Saat:</strong> {formData.preferredTime}
+              </div>
+              <div className="detail-item">
+                <strong>İletişim:</strong> {formData.email} - {formData.phone}
+              </div>
+            </div>
+            <button 
+              className="btn-success" 
+              onClick={() => {
+                setSubmitSuccess(false);
+                setCurrentStep(1);
+                setFormData({
+                  firstName: '', lastName: '', email: '', phone: '', birthDate: '',
+                  gender: '', sessionType: '', preferredDate: '', preferredTime: '',
+                  alternativeDate: '', alternativeTime: '', previousTherapy: '',
+                  currentMedication: '', concerns: '', emergencyContact: '',
+                  emergencyPhone: '', howDidYouHear: '', consent: false
+                });
+              }}
+            >
+              Yeni Randevu Talebi
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="appointment-page">
+      <div className="container">
+        <div className="appointment-header">
+          <h1>Randevu Al</h1>
+          <p>Dr. Aleyna Didem Aydın ile profesyonel psikolojik destek almak için randevu talebinde bulunun.</p>
+          
+          <div className="quick-contact">
+            <div className="contact-item">
+              <span className="contact-icon">📞</span>
+              <div>
+                <strong>Acil Durumlar</strong>
+                <p>+90 555 123 45 67</p>
+              </div>
+            </div>
+            <div className="contact-item">
+              <span className="contact-icon">📧</span>
+              <div>
+                <strong>E-posta</strong>
+                <p>info@aleynaaydın.com</p>
+              </div>
+            </div>
+            <div className="contact-item">
+              <span className="contact-icon">📍</span>
+              <div>
+                <strong>Adres</strong>
+                <p>Nişantaşı, İstanbul</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="appointment-form-container">
+          <div className="progress-bar">
+            <div className="progress-steps">
+              {[1, 2, 3, 4].map((step) => (
+                <div key={step} className={`progress-step ${currentStep >= step ? 'active' : ''}`}>
+                  <div className="step-number">{step}</div>
+                  <div className="step-label">
+                    {step === 1 && 'Kişisel Bilgiler'}
+                    {step === 2 && 'Randevu Tercihi'}
+                    {step === 3 && 'Sağlık Bilgileri'}
+                    {step === 4 && 'Onay'}
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="progress-line">
+              <div 
+                className="progress-fill" 
+                style={{ width: `${((currentStep - 1) / 3) * 100}%` }}
+              ></div>
+            </div>
+          </div>
+
+          <form onSubmit={handleSubmit} className="appointment-form">
+            {currentStep === 1 && renderStep1()}
+            {currentStep === 2 && renderStep2()}
+            {currentStep === 3 && renderStep3()}
+            {currentStep === 4 && renderStep4()}
+
+            <div className="form-navigation">
+              {currentStep > 1 && (
+                <button 
+                  type="button" 
+                  className="btn-secondary" 
+                  onClick={prevStep}
+                >
+                  ← Önceki
+                </button>
+              )}
+              
+              {currentStep < 4 ? (
+                <button 
+                  type="button" 
+                  className="btn-primary" 
+                  onClick={nextStep}
+                >
+                  Sonraki →
+                </button>
+              ) : (
+                <button 
+                  type="submit" 
+                  className="btn-primary"
+                  disabled={!formData.consent || isSubmitting}
+                >
+                  {isSubmitting ? 'Gönderiliyor...' : 'Randevu Talebini Gönder'}
+                </button>
+              )}
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Appointment;

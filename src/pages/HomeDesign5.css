@@ -1,0 +1,662 @@
+.home-design5 {
+  padding-top: 80px;
+  background: #ffffff;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+/* Medical Hero */
+.hero-medical {
+  background: #f8fafc;
+  padding: 2rem 0 4rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.medical-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 0;
+  border-bottom: 1px solid #e2e8f0;
+  margin-bottom: 3rem;
+}
+
+.doctor-credentials {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.credential-badge {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.badge-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--primary-purple);
+}
+
+.badge-name {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.medical-titles {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.appointment-quick {
+  display: flex;
+  gap: 1rem;
+}
+
+/* Medical Buttons */
+.btn-medical {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.875rem 1.75rem;
+  border: 2px solid transparent;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  text-align: center;
+}
+
+.btn-medical.primary {
+  background: var(--primary-purple);
+  color: white;
+  border-color: var(--primary-purple);
+}
+
+.btn-medical.primary:hover {
+  background: var(--dark-purple);
+  border-color: var(--dark-purple);
+}
+
+.btn-medical.secondary {
+  background: white;
+  color: var(--primary-purple);
+  border-color: var(--primary-purple);
+}
+
+.btn-medical.secondary:hover {
+  background: var(--light-purple);
+}
+
+.btn-medical.outline {
+  background: transparent;
+  color: var(--primary-purple);
+  border-color: var(--primary-purple);
+}
+
+.btn-medical.outline:hover {
+  background: var(--primary-purple);
+  color: white;
+}
+
+.btn-medical.large {
+  padding: 1.125rem 2.25rem;
+  font-size: 1rem;
+}
+
+.hero-medical-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.medical-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+}
+
+.title-highlight {
+  color: var(--primary-purple);
+}
+
+.medical-description {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.medical-specialties {
+  margin-bottom: 2.5rem;
+}
+
+.medical-specialties h3 {
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.medical-specialties ul {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+
+.medical-specialties li {
+  color: var(--text-secondary);
+  padding: 0.25rem 0;
+  position: relative;
+  padding-left: 1.25rem;
+}
+
+.medical-specialties li::before {
+  content: "●";
+  color: var(--primary-purple);
+  position: absolute;
+  left: 0;
+  font-size: 0.8rem;
+}
+
+.medical-certifications {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.cert-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+}
+
+.cert-icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.cert-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.cert-text strong {
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.cert-text span {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+.medical-stats {
+  background: white;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  overflow: hidden;
+}
+
+.stats-card h3 {
+  background: var(--primary-purple);
+  color: white;
+  padding: 1.25rem;
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.stats-grid {
+  padding: 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.stat-medical {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.stat-number {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--primary-purple);
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.3;
+}
+
+/* Treatment Approaches */
+.treatment-approaches {
+  padding: 5rem 0;
+  background: white;
+}
+
+.section-medical-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section-medical-header h2 {
+  font-size: 2.5rem;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.section-medical-header p {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+}
+
+.treatments-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.treatment-card {
+  background: white;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+}
+
+.treatment-card:hover {
+  border-color: var(--primary-purple);
+  box-shadow: 0 8px 25px rgba(214, 197, 228, 0.15);
+}
+
+.treatment-card.featured {
+  border-color: var(--primary-purple);
+  background: var(--light-purple);
+}
+
+.treatment-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.treatment-icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.treatment-card h3 {
+  font-size: 1.2rem;
+  color: var(--text-primary);
+  font-weight: 600;
+  margin: 0;
+}
+
+.treatment-content p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.treatment-conditions {
+  background: #f8fafc;
+  padding: 0.75rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  border-left: 3px solid var(--primary-purple);
+}
+
+.treatment-conditions span:first-child {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* Clinical Services */
+.clinical-services {
+  padding: 5rem 0;
+  background: #f8fafc;
+}
+
+.services-medical-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.services-info h2 {
+  font-size: 2.2rem;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+.services-info p {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.service-features {
+  margin-bottom: 2.5rem;
+}
+
+.feature-medical {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.feature-icon {
+  color: var(--primary-purple);
+  font-weight: bold;
+  width: 16px;
+  flex-shrink: 0;
+}
+
+.services-types {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.service-type {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border-left: 4px solid var(--primary-purple);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.service-type h4 {
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.service-details {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  flex-wrap: wrap;
+}
+
+/* Patient Testimonial */
+.patient-testimonial {
+  padding: 4rem 0;
+  background: white;
+  border-top: 1px solid #e2e8f0;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.testimonial-medical {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.testimonial-content h3 {
+  text-align: center;
+  color: var(--text-primary);
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.testimonial-content blockquote {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  text-align: center;
+  font-style: italic;
+  margin-bottom: 2rem;
+  padding: 0;
+  border: none;
+}
+
+.patient-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.patient-initials {
+  width: 50px;
+  height: 50px;
+  background: var(--primary-purple);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.patient-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.patient-details span:first-child {
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.patient-details span:last-child {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+/* Appointment CTA */
+.appointment-cta {
+  padding: 5rem 0;
+  background: var(--primary-purple);
+  color: white;
+}
+
+.cta-medical-wrapper {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.cta-medical-content h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: white;
+}
+
+.cta-medical-content p {
+  font-size: 1.2rem;
+  margin-bottom: 3rem;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+}
+
+.appointment-info {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.info-medical {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  text-align: center;
+}
+
+.info-label {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.info-medical span:last-child {
+  color: white;
+  font-weight: 600;
+}
+
+.cta-medical-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.appointment-cta .btn-medical.primary {
+  background: white;
+  color: var(--primary-purple);
+  border-color: white;
+}
+
+.appointment-cta .btn-medical.primary:hover {
+  background: var(--light-purple);
+  border-color: var(--light-purple);
+}
+
+.appointment-cta .btn-medical.secondary {
+  background: transparent;
+  color: white;
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.appointment-cta .btn-medical.secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: white;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .medical-header {
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: center;
+  }
+
+  .hero-medical-content {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .medical-specialties ul {
+    grid-template-columns: 1fr;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+  }
+
+  .services-medical-wrapper {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .treatments-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .badge-name {
+    font-size: 1.5rem;
+  }
+
+  .medical-title {
+    font-size: 2rem;
+  }
+
+  .appointment-quick {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
+
+  .btn-medical {
+    width: 100%;
+    max-width: 250px;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .appointment-info {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .cta-medical-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .medical-header {
+    padding: 1rem 0;
+  }
+
+  .credential-badge {
+    flex-direction: column;
+    gap: 0.25rem;
+    text-align: center;
+  }
+
+  .medical-titles {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .treatment-card {
+    padding: 1.5rem;
+  }
+
+  .treatment-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.75rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
