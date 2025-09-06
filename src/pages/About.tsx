@@ -50,10 +50,10 @@ const About: React.FC = () => {
         </section>
 
         {/* Education & Experience */}
-        <section className="credentials section bg-light-purple">
-          <h2 className="text-center">Eğitim ve Deneyim</h2>
-          
-          <div className="credentials-grid">
+        <section className="credentials section">
+          <div className="credentials-container">
+            <h2 className="text-center">Eğitim ve Deneyim</h2>
+            <div className="credentials-grid">
             <div className="credential-category">
               <h3>🎓 Eğitim</h3>
               <div className="credential-list">
@@ -107,6 +107,7 @@ const About: React.FC = () => {
                 </div>
               </div>
             </div>
+            </div>
           </div>
         </section>
 
@@ -116,25 +117,33 @@ const About: React.FC = () => {
           <div className="approach-content">
             <div className="approach-text">
               <p>
-                Terapötik yaklaşımımda, bilişsel davranışçı terapi, psikanalitik terapi ve 
-                hümanistik yaklaşımları birleştirerek bütüncül bir model kullanıyorum.
+                Her bireyin eşsiz bir hikayesi olduğuna inanarak, modern terapi tekniklerini 
+                geleneksel yaklaşımlarla harmanlıyor, sizin için en etkili tedavi yolunu 
+                birlikte keşfediyoruz.
               </p>
+              <div className="approach-intro">
+                <p>
+                  Terapötik süreçte bilişsel davranışçı terapi, psikanalitik yaklaşım ve 
+                  hümanistik perspektifi bütüncül olarak kullanarak, hem semptomlarınızla 
+                  başa çıkmanızı hem de kişisel potansiyelinizi keşfetmenizi destekliyorum.
+                </p>
+              </div>
               <div className="approach-principles">
                 <div className="principle">
-                  <h4>🤝 İş Birliği</h4>
-                  <p>Terapi sürecinde eşit ortaklar olarak çalışırız.</p>
+                  <h4>🤝 İş Birliği ve Güven</h4>
+                  <p>Terapi sürecinde eşit ortaklar olarak ilerleyerek, güvenli ve empatik bir ortamda çalışırız.</p>
                 </div>
                 <div className="principle">
-                  <h4>🎯 Kişiselleştirme</h4>
-                  <p>Her tedavi planı bireyin özel ihtiyaçlarına göre tasarlanır.</p>
+                  <h4>🎯 Kişiye Özel Yaklaşım</h4>
+                  <p>Her tedavi planı bireyin kendine özgü ihtiyaçları, yaşam tarzı ve hedefleri doğrultusunda özenle tasarlanır.</p>
                 </div>
                 <div className="principle">
-                  <h4>🔒 Gizlilik</h4>
-                  <p>Tam gizlilik ve güven ortamı sağlarım.</p>
+                  <h4>🔒 Tam Gizlilik</h4>
+                  <p>Paylaştıklarınız tamamen gizli kalır ve kendinizi özgürce ifade edebileceğiniz güvenli alan sağlarım.</p>
                 </div>
                 <div className="principle">
-                  <h4>🌱 Büyüme</h4>
-                  <p>Kişisel gelişim ve potansiyel keşfine odaklanırım.</p>
+                  <h4>🌱 Sürdürülebilir Gelişim</h4>
+                  <p>Kısa vadeli rahatlama sağlarken, uzun vadeli kişisel büyüme ve dayanıklılık inşa etmeye odaklanırım.</p>
                 </div>
               </div>
             </div>
@@ -148,32 +157,62 @@ const About: React.FC = () => {
             <div className="specialization-card card">
               <div className="spec-icon">🧠</div>
               <h3>Anksiyete Bozuklukları</h3>
-              <p>Panik atak, yaygın anksiyete, sosyal fobi ve fobiler</p>
+              <p>Panik atak, yaygın anksiyete bozukluğu, sosyal fobi, özgül fobiler ve obsesif kompulsif bozukluk tedavisi</p>
+              <div className="spec-details">
+                <span>• Bilişsel Davranışçı Terapi</span>
+                <span>• Maruz Kalma Terapisi</span>
+                <span>• Nefes ve Rahatlama Teknikleri</span>
+              </div>
             </div>
             <div className="specialization-card card">
               <div className="spec-icon">💙</div>
-              <h3>Depresyon</h3>
-              <p>Majör depresyon, distimik bozukluk ve mood bozuklukları</p>
+              <h3>Depresyon ve Duygudurum Bozuklukları</h3>
+              <p>Majör depresyon, distimik bozukluk, bipolar bozukluk ve mevsimsel duygudurum değişiklikleri</p>
+              <div className="spec-details">
+                <span>• Kognitive Terapi Teknikleri</span>
+                <span>• Davranışsal Aktivasyon</span>
+                <span>• Mindfulness Uygulamaları</span>
+              </div>
             </div>
             <div className="specialization-card card">
               <div className="spec-icon">🌪️</div>
               <h3>Travma ve PTSD</h3>
-              <p>Travma sonrası stres bozukluğu ve travmatik yaşantılar</p>
+              <p>Travma sonrası stres bozukluğu, çocukluk travmaları, kazalar ve istismar sonrası rehabilitasyon</p>
+              <div className="spec-details">
+                <span>• EMDR Terapisi</span>
+                <span>• Travma Odaklı CBT</span>
+                <span>• Somatik Yaklaşımlar</span>
+              </div>
             </div>
             <div className="specialization-card card">
               <div className="spec-icon">💕</div>
-              <h3>İlişki Sorunları</h3>
-              <p>Çift terapisi, evlilik danışmanlığı ve iletişim problemleri</p>
+              <h3>İlişki ve Çift Terapisi</h3>
+              <p>Evlilik danışmanlığı, çift terapisi, iletişim sorunları ve aile içi çatışma çözme</p>
+              <div className="spec-details">
+                <span>• Gottman Metodu</span>
+                <span>• Sistemik Aile Terapisi</span>
+                <span>• İletişim Becerileri Eğitimi</span>
+              </div>
             </div>
             <div className="specialization-card card">
               <div className="spec-icon">⚡</div>
-              <h3>Stres Yönetimi</h3>
-              <p>İş stresi, yaşam değişiklikleri ve uyum sorunları</p>
+              <h3>Stres ve Tükenmişlik</h3>
+              <p>İş stresi, tükenmişlik sendromu, yaşam geçişleri ve uyum bozuklukları</p>
+              <div className="spec-details">
+                <span>• Stres Yönetimi Teknikleri</span>
+                <span>• İş-Yaşam Dengesi</span>
+                <span>• Zaman Yönetimi Koçluğu</span>
+              </div>
             </div>
             <div className="specialization-card card">
               <div className="spec-icon">🌟</div>
-              <h3>Kişisel Gelişim</h3>
-              <p>Öz güven, hedef belirleme ve yaşam koçluğu</p>
+              <h3>Kişisel Gelişim ve Koçluk</h3>
+              <p>Öz güven geliştirme, kariyer danışmanlığı, hedef belirleme ve yaşam koçluğu</p>
+              <div className="spec-details">
+                <span>• Pozitif Psikoloji</span>
+                <span>• Güçlü Yönler Keşfi</span>
+                <span>• Motivasyon ve Hedef Odaklı Çalışma</span>
+              </div>
             </div>
           </div>
         </section>

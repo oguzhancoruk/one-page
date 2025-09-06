@@ -1,29 +1,30 @@
 .footer {
-  background-color: var(--gray-900);
-  color: white;
-  padding: 4rem 0 0;
+  background-color: var(--primary-purple);
+  color: var(--text-primary);
+  padding: 3rem 0 0;
 }
 
 .footer-content {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 1.5fr;
-  gap: 3rem;
-  margin-bottom: 3rem;
+  gap: 2rem;
+  margin-bottom: 2rem;
 }
 
 .footer-section h3 {
   margin-bottom: 1rem;
   font-size: 1.5rem;
+  color: var(--text-primary);
 }
 
 .footer-section h4 {
-  color: var(--light-purple);
-  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
   font-size: 1.1rem;
 }
 
 .footer-section p {
-  color: #cbd5e1;
+  color: var(--text-secondary);
   line-height: 1.6;
   margin-bottom: 1.5rem;
 }
@@ -39,25 +40,26 @@
 }
 
 .footer-links a {
-  color: #cbd5e1;
+  color: var(--text-secondary);
   text-decoration: none;
   transition: var(--transition);
 }
 
 .footer-links a:hover {
-  color: var(--light-purple);
+  color: var(--text-primary);
 }
 
 .contact-info {
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .contact-item {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  margin-bottom: 1rem;
-  color: #cbd5e1;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+  color: var(--text-secondary);
+  padding: 0.5rem 0;
 }
 
 .contact-icon {
@@ -67,13 +69,13 @@
 }
 
 .contact-item a {
-  color: #cbd5e1;
+  color: var(--text-secondary);
   text-decoration: none;
   transition: var(--transition);
 }
 
 .contact-item a:hover {
-  color: var(--light-purple);
+  color: var(--text-primary);
 }
 
 .social-links {
@@ -85,12 +87,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 32px;
+  height: 32px;
   background-color: rgba(139, 92, 246, 0.1);
   border-radius: 50%;
   text-decoration: none;
   transition: var(--transition);
+  padding: 0;
 }
 
 .social-link:hover {
@@ -99,7 +102,7 @@
 }
 
 .social-link span {
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
 .footer-bottom {
@@ -116,7 +119,7 @@
 }
 
 .footer-bottom p {
-  color: #9ca3af;
+  color: var(--text-secondary);
   margin: 0;
 }
 
@@ -126,14 +129,14 @@
 }
 
 .footer-bottom-links a {
-  color: #9ca3af;
+  color: var(--text-secondary);
   text-decoration: none;
   font-size: 0.9rem;
   transition: var(--transition);
 }
 
 .footer-bottom-links a:hover {
-  color: var(--light-purple);
+  color: var(--text-primary);
 }
 
 /* Responsive Design */

@@ -73,14 +73,34 @@
   background-color: var(--light-purple);
 }
 
+.credentials-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  width: 100%;
+}
+
+@media (min-width: 1200px) {
+  .credentials-container {
+    padding: 0 4rem;
+  }
+}
+
+@media (min-width: 1600px) {
+  .credentials-container {
+    padding: 0 6rem;
+  }
+}
+
 .credentials h2 {
   margin-bottom: 3rem;
 }
 
 .credentials-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 2rem;
+  align-items: start;
 }
 
 .credential-category h3 {
@@ -93,6 +113,7 @@
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  height: fit-content;
 }
 
 .credential-item {
@@ -128,9 +149,26 @@
 .approach-text > p {
   font-size: 1.1rem;
   line-height: 1.7;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   color: var(--text-secondary);
   text-align: center;
+}
+
+.approach-intro {
+  background: linear-gradient(135deg, var(--light-purple), rgba(255, 255, 255, 0.8));
+  padding: 2rem;
+  border-radius: var(--border-radius-large);
+  margin-bottom: 3rem;
+  border-left: 4px solid var(--primary-purple);
+}
+
+.approach-intro p {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--text-primary);
+  margin: 0;
+  text-align: left;
+  font-style: italic;
 }
 
 .approach-principles {
@@ -141,13 +179,22 @@
 }
 
 .principle {
-  text-align: center;
-  padding: 1.5rem;
+  background: white;
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  box-shadow: var(--shadow-light);
+  border-left: 4px solid var(--primary-purple);
+  transition: var(--transition);
+}
+
+.principle:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-medium);
 }
 
 .principle h4 {
   color: var(--primary-purple);
-  margin-bottom: 0.75rem;
+  margin-bottom: 1rem;
   font-size: 1.1rem;
 }
 
@@ -155,6 +202,7 @@
   color: var(--text-secondary);
   margin: 0;
   font-size: 0.95rem;
+  line-height: 1.5;
 }
 
 /* Specializations */
@@ -198,9 +246,25 @@
 
 .specialization-card p {
   color: var(--text-secondary);
-  margin: 0;
+  margin: 0 0 1.5rem 0;
   font-size: 0.95rem;
   line-height: 1.5;
+}
+
+.spec-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.spec-details span {
+  font-size: 0.85rem;
+  color: var(--primary-purple);
+  font-weight: 500;
+  padding: 0.25rem 0;
+  border-left: 3px solid var(--primary-purple);
+  padding-left: 0.75rem;
+  background: rgba(214, 197, 228, 0.1);
 }
 
 /* CTA Section */
@@ -254,8 +318,13 @@
     margin: 0 auto;
   }
 
+  .credentials-container {
+    padding: 0 2rem;
+  }
+
   .credentials-grid {
-    gap: 2rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
   }
 
   .approach-principles {
@@ -273,24 +342,28 @@
   }
 
   .about-hero-text h1 {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
 
   .subtitle {
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
 
   .intro-text {
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
 
   .story-text p {
-    font-size: 1rem;
+    font-size: 0.95rem;
+  }
+
+  .credentials-container {
+    padding: 0 1rem;
   }
 
   .credentials-grid {
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 1.5rem;
   }
 
   .credential-item {

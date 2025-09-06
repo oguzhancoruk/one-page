@@ -10,7 +10,7 @@ const Footer: React.FC = () => {
       <div className="container">
         <div className="footer-content">
           <div className="footer-section">
-            <h3 className="gradient-text">Dr. Aleyna Didem Aydın</h3>
+            <h3>Dr. Aleyna Didem Aydın</h3>
             <p>
               Ruh sağlığınız için güvenilir ve profesyonel psikolojik destek.
               Her bireyin eşsiz olduğuna inanıyor, kişiselleştirilmiş terapi yaklaşımları sunuyorum.
@@ -43,7 +43,7 @@ const Footer: React.FC = () => {
             <div className="contact-info">
               <div className="contact-item">
                 <span className="contact-icon">📧</span>
-                <a href="mailto:info@aleynaaydın.com">info@aleynaaydın.com</a>
+                <a href="mailto:info@aleynaidemaydın.com">info@aleynaidemaydın.com</a>
               </div>
               <div className="contact-item">
                 <span className="contact-icon">📱</span>
