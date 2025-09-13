@@ -14,40 +14,6 @@ const HomeDesignHybrid: React.FC = () => {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
-  const expertiseAreas = [
-    {
-      number: 'I',
-      title: 'Bireysel Terapi',
-      description: 'Anksiyete, depresyon ve kişisel gelişim süreçlerinde CBT ve psikanalitik yaklaşımlar.',
-      methods: 'CBT • EMDR • Psikanaliz',
-      icon: '🌱',
-      color: '#9333ea'
-    },
-    {
-      number: 'II',
-      title: 'Çift Danışmanlığı',
-      description: 'İlişki dinamikleri, iletişim sorunları ve evlilik danışmanlığında Gottman yöntemi.',
-      methods: 'Gottman • Sistemik • EFT',
-      icon: '💕',
-      color: '#7c3aed'
-    },
-    {
-      number: 'III',
-      title: 'Travma Terapisi',
-      description: 'PTSD ve travmatik yaşantıların iyileştirilmesinde EMDR ve travma odaklı CBT.',
-      methods: 'EMDR • TF-CBT • Somatic',
-      icon: '🧠',
-      color: '#a855f7'
-    },
-    {
-      number: 'IV',
-      title: 'Online Terapi',
-      description: 'Güvenli uzaktan terapi hizmeti ile esnek ve erişilebilir destek.',
-      methods: 'Video • Chat • Hybrid',
-      icon: '✨',
-      color: '#c084fc'
-    }
-  ];
 
   return (
     <div className="home-hybrid">

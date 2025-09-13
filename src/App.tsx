@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import DesignSwitcher from './components/DesignSwitcher';
 import Home from './pages/Home';
 import HomeDesign2 from './pages/HomeDesign2';
 import HomeDesign3 from './pages/HomeDesign3';
@@ -25,9 +24,7 @@ import AdminDashboard from './pages/AdminDashboard';
 import './styles/globals.css';
 
 function AppContent() {
-  const [currentDesign, setCurrentDesign] = useState(11);
-  const location = useLocation();
-  const isHomePage = location.pathname === '/';
+  const [currentDesign] = useState(11);
 
   const renderHomePage = () => {
     switch (currentDesign) {
