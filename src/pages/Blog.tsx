@@ -27,7 +27,7 @@ const Blog: React.FC = () => {
       <div className="container">
         {/* Hero Section */}
         <section className="blog-hero">
-          <h1 className="gradient-text">Blog</h1>
+          <h2 className="gradient-text">Blog</h2>
           <p className="hero-subtitle">
             Ruh sağlığı, kişisel gelişim ve yaşam kalitesi hakkında yazılarım. 
             Size fayda sağlayacak pratik öneriler ve uzman görüşleri.
@@ -138,48 +138,7 @@ const Blog: React.FC = () => {
           )}
         </section>
 
-        {/* Newsletter CTA */}
-        <section className="newsletter-cta section bg-light-purple">
-          <div className="newsletter-content text-center">
-            <h2>Yeni Yazılardan Haberdar Olun</h2>
-            <p>
-              Blog yazılarımı ve ruh sağlığı ile ilgili güncel içerikleri 
-              e-posta adresinize göndermemi ister misiniz?
-            </p>
-            <div className="newsletter-form">
-              <div className="form-group">
-                <input
-                  type="email"
-                  placeholder="E-posta adresiniz"
-                  className="newsletter-input"
-                />
-                <button className="btn btn-primary">Abone Ol</button>
-              </div>
-              <p className="newsletter-note">
-                * Spam göndermem, istediğiniz zaman abonelikten çıkabilirsiniz.
-              </p>
-            </div>
-          </div>
-        </section>
 
-        {/* Archive CTA */}
-        <section className="archive-cta section">
-          <div className="archive-content text-center">
-            <h2>Daha Fazla İçerik mi Arıyorsunuz?</h2>
-            <p>
-              Benimle kişisel gelişiminiz için çalışmak veya sorularınızı 
-              doğrudan sormak isterseniz randevu alabilirsiniz.
-            </p>
-            <div className="cta-buttons">
-              <Link to="/randevu" className="btn btn-primary">
-                Randevu Al
-              </Link>
-              <Link to="/iletisim" className="btn btn-secondary">
-                İletişime Geç
-              </Link>
-            </div>
-          </div>
-        </section>
       </div>
     </div>
   );

@@ -26,39 +26,34 @@
   margin-right: auto;
 }
 
-.quick-contact {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  flex-wrap: wrap;
+.appointment-contact {
+  text-align: center;
   margin-bottom: 2rem;
 }
 
-.contact-item {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  background: white;
-  padding: 1rem 1.5rem;
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
-
-.contact-icon {
-  font-size: 1.5rem;
-}
-
-.contact-item strong {
-  color: var(--dark-purple);
-  font-size: 0.9rem;
-  display: block;
-}
-
-.contact-item p {
-  margin: 0;
+.appointment-contact p {
+  margin-bottom: 0.75rem;
   color: #666;
-  font-size: 0.85rem;
+  font-weight: 400;
 }
+
+.appointment-contact strong {
+  color: var(--dark-purple);
+  margin-right: 0.5rem;
+}
+
+.appointment-contact a {
+  color: #666;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.appointment-contact a:hover {
+  color: var(--primary-purple);
+  text-decoration: underline;
+}
+
+
 
 /* Form Container */
 .appointment-form-container {
@@ -422,7 +417,7 @@
     font-size: 1.875rem;
   }
   
-  .quick-contact {
+  .contact-info {
     flex-direction: column;
     align-items: center;
     gap: 1rem;
@@ -481,15 +476,4 @@
     display: none;
   }
   
-  .contact-item {
-    padding: 0.75rem 1rem;
-  }
-  
-  .contact-item strong {
-    font-size: 0.8rem;
-  }
-  
-  .contact-item p {
-    font-size: 0.75rem;
-  }
 }

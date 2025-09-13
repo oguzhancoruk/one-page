@@ -4,20 +4,21 @@
 
 /* Hero Section */
 .services-hero {
-  text-align: center;
   padding: 4rem 0;
+  text-align: left;
 }
 
-.services-hero h1 {
-  font-size: 2.25rem;
+.services-hero h2 {
+ 
   margin-bottom: 1rem;
 }
 
 .hero-subtitle {
   font-size: 1.05rem;
   color: var(--text-secondary);
-  max-width: 600px;
-  margin: 0 auto;
+  margin: 0;
+  text-align: left;
+  width: 100%;
 }
 
 /* Services Grid */
@@ -139,21 +140,18 @@
   text-align: center;
 }
 
-/* Process Section */
-.therapy-process {
-  background-color: var(--light-purple);
-}
 
 .therapy-process h2 {
   margin-bottom: 3rem;
+  color: var(--primary-purple);
+ 
 }
 
 .process-steps {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2rem;
-  max-width: 1000px;
-  margin: 0 auto;
+  margin: 0;
 }
 
 .process-step {
@@ -370,9 +368,7 @@
     padding: 3rem 0;
   }
 
-  .services-hero h1 {
-    font-size: 2.5rem;
-  }
+
 
   .service-header {
     padding: 2rem;
@@ -414,9 +410,7 @@
 }
 
 @media (max-width: 480px) {
-  .services-hero h1 {
-    font-size: 2rem;
-  }
+ 
 
   .services-grid {
     gap: 2rem;

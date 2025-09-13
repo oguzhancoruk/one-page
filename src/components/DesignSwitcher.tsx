@@ -17,7 +17,8 @@ const DesignSwitcher: React.FC<DesignSwitcherProps> = ({ currentDesign, onDesign
     { id: 7, name: 'Interactive Dashboard', description: 'Canlı dashboard' },
     { id: 8, name: 'Creative Portfolio', description: 'Yaratıcı portföy' },
     { id: 9, name: 'Corporate Excellence', description: 'Kurumsal premium' },
-    { id: 10, name: 'Social Media Style', description: 'Sosyal medya tarzı' }
+    { id: 10, name: 'Social Media Style', description: 'Sosyal medya tarzı' },
+    { id: 11, name: 'Hibrit Tasarım', description: '1+4+8 karışımı' }
   ];
 
   return (

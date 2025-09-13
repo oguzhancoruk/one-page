@@ -89,8 +89,8 @@
 }
 
 .services h2 {
-  text-align: center;
-  font-size: 2.5rem;
+  text-align: left;
+  
   color: var(--text-primary);
   margin-bottom: 3rem;
   font-weight: 700;

@@ -113,7 +113,7 @@ const Services: React.FC = () => {
       <div className="container">
         {/* Hero Section */}
         <section className="services-hero">
-          <h1 className="gradient-text">Hizmetlerim</h1>
+          <h2 className="gradient-text">Hizmetlerim</h2>
           <p className="hero-subtitle">
             Size en uygun terapi yöntemini birlikte belirleyerek, 
             iyileşme sürecinizde yanınızda oluyorum.
@@ -172,19 +172,10 @@ const Services: React.FC = () => {
         </section>
 
         {/* Process Section */}
-        <section className="therapy-process section bg-light-purple">
-          <h2 className="text-center">Terapi Süreci Nasıl İşler?</h2>
+        <section className="therapy-process section ">
+          <h2>Terapi Süreci Nasıl İşler?</h2>
           <div className="process-steps">
-            <div className="process-step">
-              <div className="step-number">1</div>
-              <div className="step-content">
-                <h3>İlk Görüşme</h3>
-                <p>
-                  Ücretsiz 15 dakikalık telefon görüşmesi ile tanışır, 
-                  ihtiyaçlarınızı değerlendiririz.
-                </p>
-              </div>
-            </div>
+          
 
             <div className="process-step">
               <div className="step-number">2</div>
@@ -232,83 +223,7 @@ const Services: React.FC = () => {
           </div>
         </section>
 
-        {/* Pricing Section */}
-        <section className="pricing section">
-          <h2 className="text-center">Hizmet Ücretleri</h2>
-          <div className="pricing-grid">
-            <div className="pricing-card card">
-              <h3>Bireysel Terapi</h3>
-              <div className="price">
-                <span className="currency">₺</span>
-                <span className="amount">800</span>
-                <span className="period">/seans</span>
-              </div>
-              <ul className="pricing-features">
-                <li>50 dakika seans</li>
-                <li>Kişiselleştirilmiş yaklaşım</li>
-                <li>Esneklik ve gizlilik</li>
-                <li>İlerleme takibi</li>
-              </ul>
-            </div>
 
-            <div className="pricing-card card featured">
-              <div className="popular-badge">Popüler</div>
-              <h3>Çift Terapisi</h3>
-              <div className="price">
-                <span className="currency">₺</span>
-                <span className="amount">1200</span>
-                <span className="period">/seans</span>
-              </div>
-              <ul className="pricing-features">
-                <li>60 dakika seans</li>
-                <li>İki kişi için</li>
-                <li>İletişim teknikleri</li>
-                <li>Çatışma çözme</li>
-              </ul>
-            </div>
-
-            <div className="pricing-card card">
-              <h3>Online Terapi</h3>
-              <div className="price">
-                <span className="currency">₺</span>
-                <span className="amount">700</span>
-                <span className="period">/seans</span>
-              </div>
-              <ul className="pricing-features">
-                <li>50 dakika seans</li>
-                <li>Uzaktan erişim</li>
-                <li>Esnek saatler</li>
-                <li>Güvenli platform</li>
-              </ul>
-            </div>
-          </div>
-          
-          <div className="pricing-note text-center">
-            <p>
-              🎯 İlk görüşme ücretsizdir. SGK anlaşmalı ödeme seçenekleri mevcuttur.
-              Taksit imkanları için benimle iletişime geçebilirsiniz.
-            </p>
-          </div>
-        </section>
-
-        {/* CTA Section */}
-        <section className="services-cta section bg-purple">
-          <div className="text-center">
-            <h2>Hangi Hizmeti Seçeceğinizden Emin Değil misiniz?</h2>
-            <p>
-              Size en uygun terapi yaklaşımını birlikte belirleyelim. 
-              Ücretsiz ön görüşme için benimle iletişime geçin.
-            </p>
-            <div className="cta-buttons">
-              <Link to="/iletisim" className="btn btn-secondary">
-                Ücretsiz Danışmanlık
-              </Link>
-              <Link to="/randevu" className="btn btn-outline">
-                Hemen Randevu Al
-              </Link>
-            </div>
-          </div>
-        </section>
       </div>
     </div>
   );

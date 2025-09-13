@@ -42,28 +42,22 @@ const Footer: React.FC = () => {
             <h4>İletişim</h4>
             <div className="contact-info">
               <div className="contact-item">
-                <span className="contact-icon">📧</span>
+                <span className="contact-label">E-posta:</span>
                 <a href="mailto:info@aleynaidemaydın.com">info@aleynaidemaydın.com</a>
               </div>
               <div className="contact-item">
-                <span className="contact-icon">📱</span>
+                <span className="contact-label">Telefon:</span>
                 <a href="tel:+905551234567">+90 555 123 45 67</a>
               </div>
               <div className="contact-item">
-                <span className="contact-icon">📍</span>
-                <span>İstanbul, Türkiye</span>
+                <span className="contact-label">Adres:</span>
+                <span>Nişantaşı, İstanbul</span>
               </div>
             </div>
 
             <div className="social-links">
-              <a href="https://linkedin.com" aria-label="LinkedIn" className="social-link">
-                <span>💼</span>
-              </a>
               <a href="https://instagram.com" aria-label="Instagram" className="social-link">
-                <span>📷</span>
-              </a>
-              <a href="https://twitter.com" aria-label="Twitter" className="social-link">
-                <span>🐦</span>
+                Instagram
               </a>
             </div>
           </div>

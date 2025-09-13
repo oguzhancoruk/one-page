@@ -1,0 +1,715 @@
+/* HomeDesignHybrid.css - Combining best features of Design 1, 4, and 8 */
+
+/* Custom Cursor from Design 8 - Removed */
+.custom-cursor {
+  display: none;
+}
+
+.custom-cursor.hovering {
+  display: none;
+}
+
+/* Base Styles */
+.home-hybrid {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.6;
+  color: #1f2937;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Hero Section - Luxury fonts from Design 4 with Design 1 simplicity */
+.hero-hybrid {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #ffffff 0%, #faf9fc 100%);
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-content-hybrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-text-hybrid {
+  max-width: 580px;
+}
+
+.luxury-intro {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.luxury-line {
+  width: 40px;
+  height: 1px;
+  background: var(--primary-purple);
+}
+
+.luxury-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--primary-purple);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.luxury-title-hybrid {
+  font-size: 3.5rem;
+  font-weight: 300;
+  line-height: 1.1;
+  color: #111827;
+  margin-bottom: 32px;
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.title-script {
+  display: block;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--primary-purple);
+  margin-left: 20px;
+}
+
+.luxury-quote-hybrid {
+  font-size: 1.25rem;
+  font-style: italic;
+  color: #6b7280;
+  margin-bottom: 48px;
+  line-height: 1.7;
+  font-family: 'Playfair Display', Georgia, serif;
+  position: relative;
+  padding-left: 24px;
+}
+
+.luxury-quote-hybrid::before {
+  content: '"';
+  position: absolute;
+  left: 0;
+  top: -10px;
+  font-size: 3rem;
+  color: var(--primary-purple);
+  opacity: 0.3;
+}
+
+/* Stats with luxury styling */
+.luxury-credentials-hybrid {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 48px;
+  padding: 32px 0;
+  border-top: 1px solid #e5e7eb;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.cred-item {
+  text-align: center;
+}
+
+.cred-number {
+  display: block;
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: var(--primary-purple);
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.cred-text {
+  font-size: 0.875rem;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 500;
+}
+
+.cred-divider {
+  width: 1px;
+  height: 40px;
+  background: #e5e7eb;
+}
+
+/* Buttons with luxury styling and Design 8 interactions */
+.hero-buttons-hybrid {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.btn-luxury {
+  position: relative;
+  padding: 16px 32px;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1rem;
+  border: none;
+  overflow: hidden;
+}
+
+.btn-luxury.primary {
+  background: var(--primary-purple);
+  color: white;
+  box-shadow: 0 4px 20px rgba(214, 197, 228, 0.3);
+}
+
+.btn-luxury.primary:hover {
+  background: var(--dark-purple);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(214, 197, 228, 0.4);
+}
+
+.btn-luxury.outline {
+  background: var(--light-purple);
+  color: var(--primary-purple);
+  border: none;
+}
+
+.btn-luxury.outline:hover {
+  background: var(--primary-purple);
+  color: white;
+  transform: translateY(-2px);
+}
+
+.btn-luxury.large {
+  padding: 20px 40px;
+  font-size: 1.125rem;
+}
+
+/* Hero Visual */
+.hero-visual-hybrid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.doctor-image-luxury {
+  width: 400px;
+  height: 500px;
+  background-image: url('../data/ana.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 20px;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(214, 197, 228, 0.2);
+}
+
+/* Section Headers */
+.expertise-header-hybrid {
+  display: flex;
+  align-items: flex-start;
+  gap: 32px;
+  margin-bottom: 48px;
+}
+
+.philosophy-header-hybrid {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.philosophy-header-hybrid h2 {
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: #111827;
+  margin-bottom: 16px;
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.philosophy-header-hybrid p {
+  font-size: 1.125rem;
+  color: #6b7280;
+}
+
+.section-number {
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: var(--primary-purple);
+  font-family: 'Playfair Display', Georgia, serif;
+  border: 1px solid #e5e7eb;
+  padding: 8px 16px;
+  border-radius: 8px;
+  min-width: 60px;
+  text-align: center;
+}
+
+.section-info h2 {
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: #111827;
+  margin-bottom: 16px;
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.section-info p {
+  font-size: 1.125rem;
+  color: #6b7280;
+}
+
+/* Services Section with animations and main colors */
+.services-hybrid {
+  padding: 120px 0;
+  background: #fefefe;
+}
+
+.services-header-hybrid {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.services-header-hybrid h2 {
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: #111827;
+  margin-bottom: 16px;
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.services-header-hybrid p {
+  font-size: 1.125rem;
+  color: #6b7280;
+}
+
+.services-grid-hybrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 32px;
+}
+
+.service-card-animated {
+  position: relative;
+  background: linear-gradient(145deg, #ffffff 0%, #fefefe 100%);
+  border-radius: 20px;
+  padding: 28px 24px;
+  height: 280px;
+  cursor: pointer;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid #f3f4f6;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.service-card-animated:hover {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.15);
+  border-color: rgba(214, 197, 228, 0.3);
+}
+
+.card-background-animated {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.service-card-animated:hover .card-background-animated {
+  opacity: 1;
+}
+
+.card-gradient-animated {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, var(--item-color), rgba(255,255,255,0.9));
+  opacity: 0.1;
+}
+
+.card-pattern-animated {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image:
+    radial-gradient(circle at 20% 80%, rgba(214, 197, 228, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(214, 197, 228, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(214, 197, 228, 0.05) 0%, transparent 50%);
+  background-size: 200px 200px, 150px 150px, 100px 100px;
+  background-position: 0 0, 50px 50px, 100px 100px;
+  opacity: 0.7;
+  transition: opacity 0.4s ease;
+}
+
+.service-card-animated:hover .card-pattern-animated {
+  opacity: 1;
+}
+
+.card-content-animated {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: opacity 0.4s ease;
+}
+
+.service-card-animated:hover .card-content-animated {
+  opacity: 0;
+}
+
+
+.card-content-animated h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 16px;
+}
+
+.card-content-animated p {
+  color: #6b7280;
+  line-height: 1.6;
+  margin-bottom: auto;
+  font-size: 0.95rem;
+}
+
+.card-action-animated {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  color: var(--item-color);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  margin-top: 20px;
+}
+
+.service-card-animated:hover .card-action-animated {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.action-arrow {
+  transform: translateX(0);
+  transition: transform 0.3s ease;
+}
+
+.service-card-animated:hover .action-arrow {
+  transform: translateX(4px);
+}
+
+/* Card Overlay */
+.card-overlay-animated {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, var(--item-color), rgba(255,255,255,0.95));
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 32px;
+  color: white;
+  backdrop-filter: blur(10px);
+}
+
+.service-card-animated:hover .card-overlay-animated {
+  opacity: 1;
+  visibility: visible;
+}
+
+.overlay-content-animated h4 {
+  font-size: 1.25rem;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.overlay-content-animated p {
+  margin-bottom: 20px;
+  opacity: 0.9;
+}
+
+.overlay-link {
+  color: white;
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+/* Philosophy Section */
+.philosophy-hybrid {
+  padding: 120px 0;
+  background: linear-gradient(135deg, #faf8ff 0%, #ffffff 100%);
+}
+
+.philosophy-content-hybrid {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Intro Card */
+.philosophy-intro-card {
+  background: linear-gradient(135deg, #faf8ff 0%, #ffffff 100%);
+  border-radius: 20px;
+  padding: 40px 32px;
+  text-align: center;
+  margin-bottom: 48px;
+  border: 1px solid rgba(214, 197, 228, 0.2);
+  box-shadow: 0 8px 30px rgba(214, 197, 228, 0.1);
+}
+
+.intro-icon {
+  font-size: 3rem;
+  margin-bottom: 24px;
+  display: block;
+}
+
+.philosophy-description {
+  font-size: 1.25rem;
+  color: #6b7280;
+  line-height: 1.8;
+  margin: 0;
+  font-style: italic;
+}
+
+/* Principles Grid */
+.philosophy-principles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+.principle-card {
+  background: white;
+  border-radius: 16px;
+  padding: 32px 24px;
+  text-align: center;
+  border: 1px solid #f3f4f6;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.principle-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(214, 197, 228, 0.15);
+  border-color: rgba(214, 197, 228, 0.3);
+}
+
+.principle-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-purple), var(--accent-purple));
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.principle-card:hover::before {
+  transform: scaleX(1);
+}
+
+
+.principle-card h4 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 12px;
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.principle-card p {
+  color: #6b7280;
+  line-height: 1.6;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+/* CTA Section */
+.philosophy-cta {
+  text-align: center;
+}
+
+
+
+/* CTA Section */
+.cta-hybrid {
+  padding: 120px 0;
+  background: linear-gradient(135deg, var(--primary-purple) 0%, var(--dark-purple) 100%);
+  color: white;
+  text-align: center;
+}
+
+.cta-content-hybrid {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.cta-badge-hybrid {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 12px 24px;
+  border-radius: 50px;
+  font-weight: 500;
+  margin-bottom: 32px;
+  backdrop-filter: blur(10px);
+}
+
+.cta-content-hybrid h2 {
+  font-size: 2.5rem;
+  font-weight: 300;
+  margin-bottom: 24px;
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.cta-content-hybrid p {
+  font-size: 1.125rem;
+  opacity: 0.9;
+  margin-bottom: 48px;
+  line-height: 1.7;
+}
+
+.cta-buttons-hybrid {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.cta-buttons-hybrid .btn-luxury.primary {
+  background: white;
+  color: var(--primary-purple);
+}
+
+.cta-buttons-hybrid .btn-luxury.primary:hover {
+  background: var(--light-purple);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+.cta-buttons-hybrid .btn-luxury.outline {
+  border: none;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  backdrop-filter: blur(10px);
+}
+
+.cta-buttons-hybrid .btn-luxury.outline:hover {
+  background: white;
+  color: var(--primary-purple);
+}
+
+.btn-magic {
+  opacity: 0;
+  transform: scale(0);
+  transition: all 0.3s ease;
+}
+
+.btn-luxury:hover .btn-magic {
+  opacity: 1;
+  transform: scale(1);
+}
+
+
+
+@media (max-width: 768px) {
+  .hero-content-hybrid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+    text-align: center;
+  }
+
+  .luxury-title-hybrid {
+    font-size: 2.5rem;
+  }
+
+  .services-grid-hybrid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .service-card-animated {
+    height: 240px;
+    padding: 24px 20px;
+  }
+
+  .philosophy-content-hybrid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .philosophy-text-hybrid {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .section-number {
+    align-self: flex-start;
+  }
+
+  .luxury-credentials-hybrid {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .cred-divider {
+    width: 40px;
+    height: 1px;
+  }
+
+  .hero-buttons-hybrid,
+  .cta-buttons-hybrid {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .btn-luxury {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .custom-cursor {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .luxury-title-hybrid {
+    font-size: 2rem;
+  }
+
+  .service-card-animated {
+    height: 220px;
+    padding: 20px 16px;
+  }
+
+  .card-content-animated h3 {
+    font-size: 1.25rem;
+  }
+
+  .card-content-animated p {
+    font-size: 0.9rem;
+  }
+}

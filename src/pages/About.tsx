@@ -51,11 +51,10 @@ const About: React.FC = () => {
 
         {/* Education & Experience */}
         <section className="credentials section">
-          <div className="credentials-container">
-            <h2 className="text-center">Eğitim ve Deneyim</h2>
+          <h2>Eğitim ve Deneyim</h2>
             <div className="credentials-grid">
             <div className="credential-category">
-              <h3>🎓 Eğitim</h3>
+              <h3>Eğitim</h3>
               <div className="credential-list">
                 <div className="credential-item">
                   <h4>Doktora</h4>
@@ -73,7 +72,7 @@ const About: React.FC = () => {
             </div>
 
             <div className="credential-category">
-              <h3>💼 Mesleki Deneyim</h3>
+              <h3>Mesleki Deneyim</h3>
               <div className="credential-list">
                 <div className="credential-item">
                   <h4>Özel Pratikte</h4>
@@ -91,7 +90,7 @@ const About: React.FC = () => {
             </div>
 
             <div className="credential-category">
-              <h3>📜 Sertifikalar</h3>
+              <h3>Sertifikalar</h3>
               <div className="credential-list">
                 <div className="credential-item">
                   <h4>EMDR Terapisi</h4>
@@ -108,12 +107,11 @@ const About: React.FC = () => {
               </div>
             </div>
             </div>
-          </div>
         </section>
 
         {/* Approach Section */}
         <section className="approach-section section">
-          <h2 className="text-center">Tedavi Yaklaşımım</h2>
+          <h2>Tedavi Yaklaşımım</h2>
           <div className="approach-content">
             <div className="approach-text">
               <p>
@@ -130,19 +128,19 @@ const About: React.FC = () => {
               </div>
               <div className="approach-principles">
                 <div className="principle">
-                  <h4>🤝 İş Birliği ve Güven</h4>
+                  <h4>İş Birliği ve Güven</h4>
                   <p>Terapi sürecinde eşit ortaklar olarak ilerleyerek, güvenli ve empatik bir ortamda çalışırız.</p>
                 </div>
                 <div className="principle">
-                  <h4>🎯 Kişiye Özel Yaklaşım</h4>
+                  <h4>Kişiye Özel Yaklaşım</h4>
                   <p>Her tedavi planı bireyin kendine özgü ihtiyaçları, yaşam tarzı ve hedefleri doğrultusunda özenle tasarlanır.</p>
                 </div>
                 <div className="principle">
-                  <h4>🔒 Tam Gizlilik</h4>
+                  <h4>Tam Gizlilik</h4>
                   <p>Paylaştıklarınız tamamen gizli kalır ve kendinizi özgürce ifade edebileceğiniz güvenli alan sağlarım.</p>
                 </div>
                 <div className="principle">
-                  <h4>🌱 Sürdürülebilir Gelişim</h4>
+                  <h4>Sürdürülebilir Gelişim</h4>
                   <p>Kısa vadeli rahatlama sağlarken, uzun vadeli kişisel büyüme ve dayanıklılık inşa etmeye odaklanırım.</p>
                 </div>
               </div>
@@ -151,11 +149,10 @@ const About: React.FC = () => {
         </section>
 
         {/* Specializations */}
-        <section className="specializations section bg-light-purple">
-          <h2 className="text-center">Uzmanlık Alanlarım</h2>
+        <section className="specializations section ">
+          <h2>Uzmanlık Alanlarım</h2>
           <div className="specializations-grid">
             <div className="specialization-card card">
-              <div className="spec-icon">🧠</div>
               <h3>Anksiyete Bozuklukları</h3>
               <p>Panik atak, yaygın anksiyete bozukluğu, sosyal fobi, özgül fobiler ve obsesif kompulsif bozukluk tedavisi</p>
               <div className="spec-details">
@@ -165,7 +162,6 @@ const About: React.FC = () => {
               </div>
             </div>
             <div className="specialization-card card">
-              <div className="spec-icon">💙</div>
               <h3>Depresyon ve Duygudurum Bozuklukları</h3>
               <p>Majör depresyon, distimik bozukluk, bipolar bozukluk ve mevsimsel duygudurum değişiklikleri</p>
               <div className="spec-details">
@@ -175,7 +171,6 @@ const About: React.FC = () => {
               </div>
             </div>
             <div className="specialization-card card">
-              <div className="spec-icon">🌪️</div>
               <h3>Travma ve PTSD</h3>
               <p>Travma sonrası stres bozukluğu, çocukluk travmaları, kazalar ve istismar sonrası rehabilitasyon</p>
               <div className="spec-details">
@@ -185,7 +180,6 @@ const About: React.FC = () => {
               </div>
             </div>
             <div className="specialization-card card">
-              <div className="spec-icon">💕</div>
               <h3>İlişki ve Çift Terapisi</h3>
               <p>Evlilik danışmanlığı, çift terapisi, iletişim sorunları ve aile içi çatışma çözme</p>
               <div className="spec-details">
@@ -195,7 +189,6 @@ const About: React.FC = () => {
               </div>
             </div>
             <div className="specialization-card card">
-              <div className="spec-icon">⚡</div>
               <h3>Stres ve Tükenmişlik</h3>
               <p>İş stresi, tükenmişlik sendromu, yaşam geçişleri ve uyum bozuklukları</p>
               <div className="spec-details">
@@ -205,7 +198,6 @@ const About: React.FC = () => {
               </div>
             </div>
             <div className="specialization-card card">
-              <div className="spec-icon">🌟</div>
               <h3>Kişisel Gelişim ve Koçluk</h3>
               <p>Öz güven geliştirme, kariyer danışmanlığı, hedef belirleme ve yaşam koçluğu</p>
               <div className="spec-details">

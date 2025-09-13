@@ -460,28 +460,10 @@ const Appointment: React.FC = () => {
           <h1>Randevu Al</h1>
           <p>Dr. Aleyna Didem Aydın ile profesyonel psikolojik destek almak için randevu talebinde bulunun.</p>
           
-          <div className="quick-contact">
-            <div className="contact-item">
-              <span className="contact-icon">📞</span>
-              <div>
-                <strong>Acil Durumlar</strong>
-                <p>+90 555 123 45 67</p>
-              </div>
-            </div>
-            <div className="contact-item">
-              <span className="contact-icon">📧</span>
-              <div>
-                <strong>E-posta</strong>
-                <p>info@aleynaaydın.com</p>
-              </div>
-            </div>
-            <div className="contact-item">
-              <span className="contact-icon">📍</span>
-              <div>
-                <strong>Adres</strong>
-                <p>Nişantaşı, İstanbul</p>
-              </div>
-            </div>
+          <div className="appointment-contact">
+            <p><strong>Acil Durumlar:</strong> <a href="tel:+905551234567">+90 555 123 45 67</a></p>
+            <p><strong>E-posta:</strong> <a href="mailto:info@aleynaaydın.com">info@aleynaaydın.com</a></p>
+            <p><strong>Adres:</strong> Nişantaşı, İstanbul</p>
           </div>
         </div>
 

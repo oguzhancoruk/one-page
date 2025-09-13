@@ -13,6 +13,7 @@ import HomeDesign7 from './pages/HomeDesign7';
 import HomeDesign8 from './pages/HomeDesign8';
 import HomeDesign9 from './pages/HomeDesign9';
 import HomeDesign10 from './pages/HomeDesign10';
+import HomeDesignHybrid from './pages/HomeDesignHybrid';
 import About from './pages/About';
 import Services from './pages/Services';
 import Blog from './pages/Blog';
@@ -24,7 +25,7 @@ import AdminDashboard from './pages/AdminDashboard';
 import './styles/globals.css';
 
 function AppContent() {
-  const [currentDesign, setCurrentDesign] = useState(1);
+  const [currentDesign, setCurrentDesign] = useState(11);
   const location = useLocation();
   const isHomePage = location.pathname === '/';
 
@@ -50,6 +51,8 @@ function AppContent() {
         return <HomeDesign9 />;
       case 10:
         return <HomeDesign10 />;
+      case 11:
+        return <HomeDesignHybrid />;
       default:
         return <Home />;
     }
@@ -58,12 +61,6 @@ function AppContent() {
   return (
     <div className="App">
       <Header />
-      {isHomePage && (
-        <DesignSwitcher 
-          currentDesign={currentDesign}
-          onDesignChange={setCurrentDesign}
-        />
-      )}
       <main>
         <Routes>
           <Route path="/" element={renderHomePage()} />
