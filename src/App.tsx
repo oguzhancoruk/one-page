@@ -14,8 +14,6 @@ import HomeDesign9 from './pages/HomeDesign9';
 import HomeDesign10 from './pages/HomeDesign10';
 import HomeDesignHybrid from './pages/HomeDesignHybrid';
 import About from './pages/About';
-import Services from './pages/Services';
-import Blog from './pages/Blog';
 import FAQ from './pages/FAQ';
 import Contact from './pages/Contact';
 import Appointment from './pages/Appointment';
