@@ -24,11 +24,11 @@ const FAQ: React.FC = () => {
     },
     {
       question: "Seanslar ne kadar sürer?",
-      answer: "Bireysel terapi seansları genellikle 50 dakika, çift terapisi seansları ise 60 dakika sürmektedir. Seans sıklığı ihtiyaçlarınıza göre belirlenir, genellikle haftada bir kez başlanır."
+      answer: "Terapi seansları genellikle 45-60 dakika arasında sürmektedir. Seans sıklığı ihtiyaçlarınıza göre belirlenir, genellikle haftada bir kez planlarız."
     },
     {
       question: "Kaç seans sürer?",
-      answer: "Terapi süreci kişiden kişiye değişir. Bazı sorunlar birkaç seansta çözülürken, daha derin konular aylar sürebilir. Bu konuyu ilk görüşmemizde birlikte değerlendiririz."
+      answer: "Terapi süreci kişiden kişiye değişir. Bazı sorunlar birkaç seansta çözülürken, daha derin konular aylar sürebilir."
     },
     {
       question: "Online terapi seçeneği var mı?",
@@ -48,15 +48,15 @@ const FAQ: React.FC = () => {
     },
     {
       question: "Hangi ödeme yöntemlerini kabul ediyorsunuz?",
-      answer: "Nakit, kredi kartı ve banka havalesi ile ödeme alıyorum. Ayrıca SGK anlaşmalı olduğum için, uygun koşullarda SGK ile çalışabiliyoruz."
+      answer: "" /* "Nakit, kredi kartı ve banka havalesi ile ödeme alıyorum. Ayrıca SGK anlaşmalı olduğum için, uygun koşullarda SGK ile çalışabiliyoruz." */
     },
     {
       question: "Çift terapisine tek başıma gelebilir miyim?",
-      answer: "Çift terapisinin amacı ilişkideki her iki tarafın da katılımını sağlamaktır. Ancak bazı durumlarda önce bireysel görüşmeler yapılabilir. Bu durumu değerlendirmek için önce danışabilirsiniz."
+      answer: "Çift terapisinin amacı ilişkideki her iki tarafın da katılımını sağlamaktır. Ancak bazı durumlarda önce bireysel görüşmeler yapılabilir."
     },
     {
       question: "Yaş sınırı var mı?",
-      answer: "Yetişkin bireylerle (18 yaş üstü) çalışıyorum. Çocuk ve ergen terapisi için uygun uzman meslektaşlarımı önerebilirim."
+      answer: "Yetişkin ve ergen bireylerle çalışıyorum. Çocuk terapisi için uygun uzman meslektaşlarımı önerebilirim."
     },
     {
       question: "Hangi durumlarda terapiye başvurmalıyım?",

@@ -15,6 +15,7 @@ interface AppointmentForm {
   alternativeTime: string;
   previousTherapy: string;
   currentMedication: string;
+  medicationList?: string;
   concerns: string;
   emergencyContact: string;
   emergencyPhone: string;
@@ -127,7 +128,7 @@ const Appointment: React.FC = () => {
             name="phone"
             value={formData.phone}
             onChange={handleInputChange}
-            placeholder="0555 123 45 67"
+            placeholder="Numaranızı giriniz"
             required
           />
         </div>
@@ -178,10 +179,10 @@ const Appointment: React.FC = () => {
           required
         >
           <option value="">Seçiniz</option>
-          <option value="bireysel">Bireysel Terapi (₺800)</option>
-          <option value="cift">Çift Terapisi (₺1200)</option>
-          <option value="online">Online Terapi (₺700)</option>
-          <option value="acil">Acil Destek (₺400)</option>
+          <option value="bireysel">Bireysel Terapi</option>
+          <option value="ergen">Ergen Terapisi</option>
+          <option value="cift">Çift Terapisi</option>
+          <option value="online">Online Terapi</option>
         </select>
       </div>
       
@@ -232,6 +233,7 @@ const Appointment: React.FC = () => {
             onChange={handleInputChange}
             min={new Date().toISOString().split('T')[0]}
           />
+          <small className="form-note">İsteğe bağlı: İlk tercih müsait olmadığında değerlendirmeye alınacak alternatif tarih.</small>
         </div>
         <div className="form-group">
           <label htmlFor="alternativeTime">Alternatif Saat</label>
@@ -271,10 +273,10 @@ const Appointment: React.FC = () => {
           required
         >
           <option value="">Seçiniz</option>
-          <option value="hayir">Hayır, ilk kez</option>
-          <option value="evet-devam">Evet, hala devam ediyor</option>
-          <option value="evet-bitti">Evet, tamamlandı</option>
-          <option value="evet-yarida">Evet, yarıda bıraktım</option>
+          <option value="hayir">Hayır, ilk kez alacağım.</option>
+          <option value="evet-devam">Evet, hâlâ devam ediyorum.</option>
+          <option value="evet-bitti">Evet, süreci tamamladım.</option>
+          <option value="evet-yarida">Evet, süreci yarıda bıraktım.</option>
         </select>
       </div>
       
@@ -289,11 +291,23 @@ const Appointment: React.FC = () => {
         >
           <option value="">Seçiniz</option>
           <option value="hayir">Hayır</option>
-          <option value="evet-ruhsal">Evet, ruh sağlığı ile ilgili</option>
-          <option value="evet-fiziksel">Evet, fiziksel sağlık ile ilgili</option>
-          <option value="evet-her-ikisi">Evet, her ikisi</option>
+          <option value="evet">Evet</option>
         </select>
       </div>
+
+      {formData.currentMedication === 'evet' && (
+        <div className="form-group">
+          <label htmlFor="medicationList">Kullandığınız ilaçları yazınız</label>
+          <textarea
+            id="medicationList"
+            name="medicationList"
+            value={formData.medicationList || ''}
+            onChange={handleInputChange}
+            rows={3}
+            placeholder="İlaç isimlerini yazınız..."
+          />
+        </div>
+      )}
       
       <div className="form-group">
         <label htmlFor="concerns">Hangi konularda destek almak istiyorsunuz? *</label>
@@ -386,8 +400,8 @@ const Appointment: React.FC = () => {
             <h4>📋 Randevu Süreci</h4>
             <ul>
               <li>Formunuz incelendikten sonra 24 saat içinde dönüş yapılacaktır</li>
-              <li>Uygun zaman dilimi için size telefon edilecektir</li>
-              <li>İlk görüşme 50 dakika sürmektedir</li>
+              <li>Uygun zaman dilimi için sizinle iletişime geçilecektir</li>
+              <li>Seanslar 45-60 dakika arasında yapılmaktadır</li>
               <li>Randevu onayı e-posta ile gönderilecektir</li>
             </ul>
           </div>
@@ -395,10 +409,10 @@ const Appointment: React.FC = () => {
           <div className="info-box">
             <h4>💳 Ödeme Bilgileri</h4>
             <ul>
-              <li>Ödeme seansın başında nakit veya kart ile yapılabilir</li>
+              {/* <li>Ödeme seansın başında nakit veya kart ile yapılabilir</li>
               <li>Online seanslar için havale/EFT kabul edilmektedir</li>
               <li>İptal durumunda 24 saat önceden haber verilmelidir</li>
-              <li>Dekont/fatura verilmektedir</li>
+              <li>Dekont/fatura verilmektedir</li> */}
             </ul>
           </div>
         </div>
@@ -458,74 +472,73 @@ const Appointment: React.FC = () => {
       <div className="container">
         <div className="appointment-header">
           <h1>Randevu Al</h1>
-          <p>Dr. Aleyna Didem Aydın ile profesyonel psikolojik destek almak için randevu talebinde bulunun.</p>
-          
-          <div className="appointment-contact">
-            <p><strong>Acil Durumlar:</strong> <a href="tel:+905551234567">+90 555 123 45 67</a></p>
-            <p><strong>E-posta:</strong> <a href="mailto:info@aleynaaydın.com">info@aleynaaydın.com</a></p>
-            <p><strong>Adres:</strong> Nişantaşı, İstanbul</p>
-          </div>
+          <p>Uzm. Kl. Psk. Aleyna Didem Aydın ile profesyonel psikolojik destek almak için randevu talebinde bulunun.</p>
         </div>
 
-        <div className="appointment-form-container">
-          <div className="progress-bar">
-            <div className="progress-steps">
-              {[1, 2, 3, 4].map((step) => (
-                <div key={step} className={`progress-step ${currentStep >= step ? 'active' : ''}`}>
-                  <div className="step-number">{step}</div>
-                  <div className="step-label">
-                    {step === 1 && 'Kişisel Bilgiler'}
-                    {step === 2 && 'Randevu Tercihi'}
-                    {step === 3 && 'Sağlık Bilgileri'}
-                    {step === 4 && 'Onay'}
+        <div className="appointment-main-content">
+          <div className="appointment-form-section">
+            <div className="appointment-form-container">
+              <div className="progress-bar">
+                <div className="progress-steps">
+                  <div className="progress-line">
+                    <div
+                      className="progress-fill"
+                      style={{ width: `${((currentStep - 1) / 3) * 100}%` }}
+                    ></div>
                   </div>
+                  {[1, 2, 3, 4].map((step) => (
+                    <div key={step} className={`progress-step ${currentStep >= step ? 'active' : ''}`}>
+                      <div className="step-number">{step}</div>
+                      <div className="step-label">
+                        {step === 1 && 'Kişisel Bilgiler'}
+                        {step === 2 && 'Randevu Tercihi'}
+                        {step === 3 && 'Sağlık Bilgileri'}
+                        {step === 4 && 'Onay'}
+                      </div>
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
-            <div className="progress-line">
-              <div 
-                className="progress-fill" 
-                style={{ width: `${((currentStep - 1) / 3) * 100}%` }}
-              ></div>
+              </div>
+
+              <form onSubmit={handleSubmit} className="appointment-form">
+                {currentStep === 1 && renderStep1()}
+                {currentStep === 2 && renderStep2()}
+                {currentStep === 3 && renderStep3()}
+                {currentStep === 4 && renderStep4()}
+
+                <div className="form-navigation">
+                  {currentStep > 1 && (
+                    <button
+                      type="button"
+                      className="btn-secondary"
+                      onClick={prevStep}
+                    >
+                      ← Önceki
+                    </button>
+                  )}
+
+                  {currentStep < 4 ? (
+                    <button
+                      type="button"
+                      className="btn-primary"
+                      onClick={nextStep}
+                    >
+                      Sonraki →
+                    </button>
+                  ) : (
+                    <button
+                      type="submit"
+                      className="btn-primary"
+                      disabled={!formData.consent || isSubmitting}
+                    >
+                      {isSubmitting ? 'Gönderiliyor...' : 'Randevu Talebini Gönder'}
+                    </button>
+                  )}
+                </div>
+              </form>
             </div>
           </div>
 
-          <form onSubmit={handleSubmit} className="appointment-form">
-            {currentStep === 1 && renderStep1()}
-            {currentStep === 2 && renderStep2()}
-            {currentStep === 3 && renderStep3()}
-            {currentStep === 4 && renderStep4()}
-
-            <div className="form-navigation">
-              {currentStep > 1 && (
-                <button 
-                  type="button" 
-                  className="btn-secondary" 
-                  onClick={prevStep}
-                >
-                  ← Önceki
-                </button>
-              )}
-              
-              {currentStep < 4 ? (
-                <button 
-                  type="button" 
-                  className="btn-primary" 
-                  onClick={nextStep}
-                >
-                  Sonraki →
-                </button>
-              ) : (
-                <button 
-                  type="submit" 
-                  className="btn-primary"
-                  disabled={!formData.consent || isSubmitting}
-                >
-                  {isSubmitting ? 'Gönderiliyor...' : 'Randevu Talebini Gönder'}
-                </button>
-              )}
-            </div>
-          </form>
         </div>
       </div>
     </div>

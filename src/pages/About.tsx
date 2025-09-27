@@ -10,10 +10,9 @@ const About: React.FC = () => {
         <section className="about-hero">
           <div className="about-hero-content">
             <div className="about-hero-text">
-              <h1 className="gradient-text">Dr. Aleyna Didem Aydın</h1>
-              <p className="subtitle">Klinik Psikolog</p>
+              <h1 className="gradient-text">Uzm. Kl. Psk. Aleyna Didem Aydın</h1>
               <p className="intro-text">
-                10 yılı aşkın deneyimim ile bireylerin ruh sağlığı yolculuğunda rehberlik ediyor, 
+                Bireylerin ruh sağlığı yolculuğunda rehberlik ediyor,
                 herkesin potansiyelini keşfetmesine yardımcı oluyorum.
               </p>
             </div>
@@ -31,20 +30,25 @@ const About: React.FC = () => {
             <h2>Hikayem</h2>
             <div className="story-text">
               <p>
-                Psikoloji alanındaki yolculuğum, insanların ruh hallerinin ve davranışlarının 
-                ardındaki derinlikleri anlamaya duyduğum merakla başladı. İstanbul Üniversitesi 
-                Psikoloji Bölümü'nden mezun olduktan sonra, klinik psikoloji alanında 
-                uzmanlaşmak için yoğun bir eğitim sürecine girdim.
+                Psikoloji alanındaki yolculuğum, insanların ruh hallerinin ve davranışlarının
+                ardındaki derinlikleri anlamaya duyduğum merakla başladı. İstanbul Kültür Üniversitesi
+                Psikoloji Bölümü'nden başarıyla mezun olduktan sonra, Üsküdar Üniversitesi'nde
+                Klinik Psikoloji yüksek lisansımı başarıyla tamamlamış bulunmaktayım.
               </p>
               <p>
-                Kariyerim boyunca farklı yaş gruplarından ve çeşitli sorunlarla mücadele eden 
-                binlerce danışanla çalıştım. Bu deneyimler, her bireyin eşsiz olduğunu ve 
-                kişiselleştirilmiş yaklaşımların önemini bana öğretti.
+                Stajlarımı İstanbul Adalet Sarayı'nda adli psikolog stajyeri ve Dr. Yalçın Güzelhan
+                Kliniği'nde stajyer psikolog olarak yapmış bulunmaktayım. Psikoterapi alanında
+                ilerleyebilmek adına Hakan Türkçapar'ın eğitmenliğinde BDT eğitimini aldım ve bu
+                bağlamda bireysel terapi sürecinde aktif danışanlar görmekteyim.
               </p>
               <p>
-                Bugün, modern terapi tekniklerini geleneksel yaklaşımlarla harmanlayarak, 
-                her danışanım için en etkili tedavi planını oluşturmaya odaklanıyorum.
+                Kişisel gelişim uzmanlığı çatısı altında yaşam koçluğu, NLP, kuantum eğitimlerimi
+                Eğitimci-Sosyolog Neslihan Kuruoğlu'ndan aldım. Ayrıca Biorezonans Sağlık Hizmetlerinden
+                Psiko kinezyoloji ve Matrix inform eğitimlerini Ramazan Toy'dan almış bulunmaktayım.
+                
               </p>
+              <p>Hâli hazırda Uzman Klinik Psikolog Elif Nuhoğlu'nun kliniğinde klinik psikolog olarak
+              çalışmakta olup online ve yüz yüze terapi hizmetlerine devam etmekteyim.</p>
             </div>
           </div>
         </section>
@@ -57,16 +61,12 @@ const About: React.FC = () => {
               <h3>Eğitim</h3>
               <div className="credential-list">
                 <div className="credential-item">
-                  <h4>Doktora</h4>
-                  <p>Klinik Psikoloji - İstanbul Üniversitesi (2018)</p>
-                </div>
-                <div className="credential-item">
                   <h4>Yüksek Lisans</h4>
-                  <p>Klinik Psikoloji - Boğaziçi Üniversitesi (2015)</p>
+                  <p>Klinik Psikoloji - Üsküdar Üniversitesi</p>
                 </div>
                 <div className="credential-item">
                   <h4>Lisans</h4>
-                  <p>Psikoloji - İstanbul Üniversitesi (2013)</p>
+                  <p>Psikoloji - İstanbul Kültür Üniversitesi</p>
                 </div>
               </div>
             </div>
@@ -75,34 +75,39 @@ const About: React.FC = () => {
               <h3>Mesleki Deneyim</h3>
               <div className="credential-list">
                 <div className="credential-item">
-                  <h4>Özel Pratikte</h4>
-                  <p>Klinik Psikolog (2018 - Devam Ediyor)</p>
+                  <h4>Elif Nuhoğlu Kliniği</h4>
+                  <p>Klinik Psikolog (Devam Ediyor)</p>
                 </div>
                 <div className="credential-item">
-                  <h4>Acıbadem Hastanesi</h4>
-                  <p>Klinik Psikolog (2016-2018)</p>
+                  <h4>Bi'iz Kliniği</h4>
+                  <p>Klinik Psikolog (Online ve Yüz Yüze)</p>
                 </div>
                 <div className="credential-item">
-                  <h4>İstanbul Üniversitesi</h4>
-                  <p>Araştırma Görevlisi (2013-2016)</p>
+                  <h4>Dr. Yalçın Güzelhan Kliniği</h4>
+                  <p>Stajyer Psikolog</p>
+                </div>
+                <div className="credential-item">
+                  <h4>İstanbul Adalet Sarayı</h4>
+                  <p>Adli Psikolog Stajyeri</p>
                 </div>
               </div>
             </div>
 
             <div className="credential-category">
-              <h3>Sertifikalar</h3>
+              <h3>Sertifikalar ve Eğitimler</h3>
               <div className="credential-list">
                 <div className="credential-item">
-                  <h4>EMDR Terapisi</h4>
-                  <p>Travma Tedavisi Uzmanı (2019)</p>
-                </div>
-                <div className="credential-item">
                   <h4>Bilişsel Davranışçı Terapi</h4>
-                  <p>CBT Uzmanlık Sertifikası (2018)</p>
+                  <p>Eğitmen: Hakan Türkçapar</p>
                 </div>
                 <div className="credential-item">
-                  <h4>Çift ve Aile Terapisi</h4>
-                  <p>Sistemik Terapi Sertifikası (2020)</p>
+                  <h4>Kişisel Gelişim Uzmanlığı</h4>
+                  <p>Eğitmen: Neslihan Kuruoğlu</p>
+                </div>
+                <div className="credential-item">
+                  <h4>Biorezonans Sağlık Hizmetleri</h4>
+                  <p>Psikokinezyoloji ve Matrix İnform Eğitimleri </p>
+                  <p>Eğitmen: Ramazan Toy</p>
                 </div>
               </div>
             </div>
@@ -121,9 +126,9 @@ const About: React.FC = () => {
               </p>
               <div className="approach-intro">
                 <p>
-                  Terapötik süreçte bilişsel davranışçı terapi, psikanalitik yaklaşım ve 
-                  hümanistik perspektifi bütüncül olarak kullanarak, hem semptomlarınızla 
-                  başa çıkmanızı hem de kişisel potansiyelinizi keşfetmenizi destekliyorum.
+                  Terapötik süreçte bilişsel davranışçı terapi ve hümanistik perspektifi
+                  bütüncül olarak kullanarak, hem semptomlarınızla başa çıkmanızı hem de
+                  kişisel potansiyelinizi keşfetmenizi destekliyorum.
                 </p>
               </div>
               <div className="approach-principles">
@@ -154,57 +159,21 @@ const About: React.FC = () => {
           <div className="specializations-grid">
             <div className="specialization-card card">
               <h3>Anksiyete Bozuklukları</h3>
-              <p>Panik atak, yaygın anksiyete bozukluğu, sosyal fobi, özgül fobiler ve obsesif kompulsif bozukluk tedavisi</p>
-              <div className="spec-details">
-                <span>• Bilişsel Davranışçı Terapi</span>
-                <span>• Maruz Kalma Terapisi</span>
-                <span>• Nefes ve Rahatlama Teknikleri</span>
-              </div>
             </div>
             <div className="specialization-card card">
               <h3>Depresyon ve Duygudurum Bozuklukları</h3>
-              <p>Majör depresyon, distimik bozukluk, bipolar bozukluk ve mevsimsel duygudurum değişiklikleri</p>
-              <div className="spec-details">
-                <span>• Kognitive Terapi Teknikleri</span>
-                <span>• Davranışsal Aktivasyon</span>
-                <span>• Mindfulness Uygulamaları</span>
-              </div>
-            </div>
-            <div className="specialization-card card">
-              <h3>Travma ve PTSD</h3>
-              <p>Travma sonrası stres bozukluğu, çocukluk travmaları, kazalar ve istismar sonrası rehabilitasyon</p>
-              <div className="spec-details">
-                <span>• EMDR Terapisi</span>
-                <span>• Travma Odaklı CBT</span>
-                <span>• Somatik Yaklaşımlar</span>
-              </div>
             </div>
             <div className="specialization-card card">
               <h3>İlişki ve Çift Terapisi</h3>
-              <p>Evlilik danışmanlığı, çift terapisi, iletişim sorunları ve aile içi çatışma çözme</p>
-              <div className="spec-details">
-                <span>• Gottman Metodu</span>
-                <span>• Sistemik Aile Terapisi</span>
-                <span>• İletişim Becerileri Eğitimi</span>
-              </div>
+            </div>
+            <div className="specialization-card card">
+              <h3>Ergen Terapisi</h3>
             </div>
             <div className="specialization-card card">
               <h3>Stres ve Tükenmişlik</h3>
-              <p>İş stresi, tükenmişlik sendromu, yaşam geçişleri ve uyum bozuklukları</p>
-              <div className="spec-details">
-                <span>• Stres Yönetimi Teknikleri</span>
-                <span>• İş-Yaşam Dengesi</span>
-                <span>• Zaman Yönetimi Koçluğu</span>
-              </div>
             </div>
             <div className="specialization-card card">
               <h3>Kişisel Gelişim ve Koçluk</h3>
-              <p>Öz güven geliştirme, kariyer danışmanlığı, hedef belirleme ve yaşam koçluğu</p>
-              <div className="spec-details">
-                <span>• Pozitif Psikoloji</span>
-                <span>• Güçlü Yönler Keşfi</span>
-                <span>• Motivasyon ve Hedef Odaklı Çalışma</span>
-              </div>
             </div>
           </div>
         </section>

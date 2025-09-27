@@ -27,8 +27,6 @@ const Header: React.FC = () => {
   const navigation = [
     { name: 'Ana Sayfa', path: '/' },
     { name: 'Hakkımda', path: '/hakkimda' },
-    { name: 'Hizmetler', path: '/hizmetler' },
-    { name: 'Blog', path: '/blog' },
     { name: 'SSS', path: '/sss' },
     { name: 'İletişim', path: '/iletisim' }
   ];
@@ -38,7 +36,10 @@ const Header: React.FC = () => {
       <div className="header-wrapper">
         <div className="header-content">
           <Link to="/" className="logo" onClick={closeMenu}>
-            <h3 className="gradient-text">Dr. Aleyna Didem Aydın</h3>
+            <div className="logo-content">
+              <span className="title">Uzm. Kl. Psk.</span>
+              <h3 className="gradient-text">Aleyna Didem Aydın</h3>
+            </div>
           </Link>
 
           <nav className={`nav ${isMenuOpen ? 'nav-open' : ''}`}>

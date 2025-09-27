@@ -10,8 +10,7 @@ const Home: React.FC = () => {
         <div className="container">
           <div className="hero-content">
             <div className="hero-text">
-              <h1>Dr. Aleyna Didem Aydın</h1>
-              <p className="hero-subtitle">Uzman Klinik Psikolog</p>
+              <h1>Uzm.Kl.Psk.Aleyna Didem Aydın</h1>
               <p className="hero-description">
                 Bireysel ve çift terapisi alanında 10+ yıl deneyim. 
                 Size özel terapi yaklaşımları ile yaşam kalitenizi artırıyorum.

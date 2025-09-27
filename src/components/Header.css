@@ -27,6 +27,18 @@
   min-height: 45px;
 }
 
+.logo-content {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo-content .title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0;
+}
+
 .logo h3 {
   margin: 0;
   font-size: 1.25rem;
@@ -160,6 +172,10 @@
     min-height: 60px;
   }
 
+  .logo-content .title {
+    font-size: 1.25rem;
+  }
+
   .logo h3 {
     font-size: 1.25rem;
   }
@@ -229,6 +245,10 @@
     padding: 0 0.75rem;
   }
   
+  .logo-content .title {
+    font-size: 1rem;
+  }
+
   .logo h3 {
     font-size: 1rem;
   }

@@ -62,8 +62,6 @@ function AppContent() {
         <Routes>
           <Route path="/" element={renderHomePage()} />
           <Route path="/hakkimda" element={<About />} />
-          <Route path="/hizmetler" element={<Services />} />
-          <Route path="/blog" element={<Blog />} />
           <Route path="/sss" element={<FAQ />} />
           <Route path="/iletisim" element={<Contact />} />
           <Route path="/randevu" element={<Appointment />} />

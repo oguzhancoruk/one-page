@@ -64,7 +64,7 @@ const Contact: React.FC = () => {
                 <div className="method-icon">📧</div>
                 <div className="method-content">
                   <h3>E-posta</h3>
-                  <p>info@aleynaaydın.com</p>
+                  <p>psikologaleynadidemaydin@gmail.com</p>
                   <span className="response-time">24 saat içinde yanıtlarım</span>
                 </div>
               </div>
@@ -73,7 +73,7 @@ const Contact: React.FC = () => {
                 <div className="method-icon">📱</div>
                 <div className="method-content">
                   <h3>Telefon</h3>
-                  <p>+90 555 123 45 67</p>
+                  <p></p>
                   <span className="response-time">Hafta içi 09:00-17:00</span>
                 </div>
               </div>
@@ -82,7 +82,7 @@ const Contact: React.FC = () => {
                 <div className="method-icon">💬</div>
                 <div className="method-content">
                   <h3>WhatsApp</h3>
-                  <p>+90 555 123 45 67</p>
+                  <p></p>
                   <span className="response-time">Hızlı yanıt</span>
                 </div>
               </div>
@@ -91,7 +91,7 @@ const Contact: React.FC = () => {
                 <div className="method-icon">📍</div>
                 <div className="method-content">
                   <h3>Adres</h3>
-                  <p>Nişantaşı, Teşvikiye Mah.<br />İstanbul, Türkiye</p>
+                  <p></p>
                   <span className="response-time">Randevu ile</span>
                 </div>
               </div>
@@ -106,7 +106,7 @@ const Contact: React.FC = () => {
                 </div>
                 <div className="hour-item">
                   <span>Cumartesi</span>
-                  <span>10:00 - 15:00</span>
+                  <span>Kapalı</span>
                 </div>
                 <div className="hour-item">
                   <span>Pazar</span>
@@ -161,7 +161,7 @@ const Contact: React.FC = () => {
                         name="phone"
                         value={formData.phone}
                         onChange={handleInputChange}
-                        placeholder="0555 123 45 67"
+                        placeholder="Numara Giriniz"
                       />
                     </div>
 
@@ -176,10 +176,9 @@ const Contact: React.FC = () => {
                         <option value="">Seçiniz</option>
                         <option value="bireysel">Bireysel Terapi</option>
                         <option value="cift">Çift Terapisi</option>
-                        <option value="travma">Travma Tedavisi</option>
+                        <option value="ergen">Ergen Terapisi</option>
                         <option value="gelisim">Kişisel Gelişim</option>
                         <option value="online">Online Terapi</option>
-                        <option value="diger">Diğer</option>
                       </select>
                     </div>
                   </div>
@@ -286,30 +285,6 @@ const Contact: React.FC = () => {
           </div>
         </div>
 
-        {/* Emergency Contact */}
-        <section className="emergency-contact section bg-light-purple">
-          <div className="emergency-content text-center">
-            <h2>🚨 Acil Durumlar</h2>
-            <p>
-              Eğer kendinize veya başkalarına zarar verme düşünceleriniz varsa, 
-              lütfen derhal aşağıdaki numaraları arayın:
-            </p>
-            <div className="emergency-numbers">
-              <div className="emergency-item">
-                <strong>Acil Servis:</strong> 112
-              </div>
-              <div className="emergency-item">
-                <strong>İntihar Önleme Hattı:</strong> 183
-              </div>
-              <div className="emergency-item">
-                <strong>Kadın Danışma Hattı:</strong> 183
-              </div>
-            </div>
-            <p className="emergency-note">
-              Bu numaralar 7/24 hizmet vermektedir ve tamamen gizlidir.
-            </p>
-          </div>
-        </section>
 
         {/* Quick Actions */}
         <section className="quick-actions section">
@@ -321,17 +296,17 @@ const Contact: React.FC = () => {
               <p>Online randevu sistemi ile kolayca randevu alın</p>
             </Link>
 
-            <a href="tel:+905551234567" className="quick-action card">
+            <div className="quick-action card">
               <div className="action-icon">📞</div>
               <h3>Hemen Ara</h3>
               <p>Acil durumlarda direkt telefon ile ulaşın</p>
-            </a>
+            </div>
 
-            <a href="https://wa.me/905551234567" className="quick-action card" target="_blank" rel="noopener noreferrer">
+            <div className="quick-action card">
               <div className="action-icon">💬</div>
               <h3>WhatsApp</h3>
               <p>WhatsApp üzerinden hızlı iletişim kurun</p>
-            </a>
+            </div>
 
             <Link to="/sss" className="quick-action card">
               <div className="action-icon">❓</div>

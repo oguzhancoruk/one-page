@@ -17,6 +17,66 @@ const HomeDesignHybrid: React.FC = () => {
 
   return (
     <div className="home-hybrid">
+      {/* Floating Butterflies */}
+      {/* <div className="butterflies-container">
+        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((num) => (
+          <div key={num} className={`butterfly-svg butterfly-${num}`}>
+            <svg width="60" height="60" viewBox="0 0 60 60" className="butterfly-icon">
+              <defs>
+                <linearGradient id={`grad${num}`} x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#ff6b6b" stopOpacity="0.9"/>
+                  <stop offset="25%" stopColor="#ff9a9e" stopOpacity="0.8"/>
+                  <stop offset="50%" stopColor="#fad0c4" stopOpacity="0.7"/>
+                  <stop offset="75%" stopColor="#8b45ff" stopOpacity="0.8"/>
+                  <stop offset="100%" stopColor="#a78bfa" stopOpacity="0.9"/>
+                </linearGradient>
+                <filter id={`glow${num}`}>
+                  <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+                  <feMerge>
+                    <feMergeNode in="coloredBlur"/>
+                    <feMergeNode in="SourceGraphic"/>
+                  </feMerge>
+                </filter>
+              </defs>
+
+              <ellipse cx="30" cy="30" rx="1.5" ry="12" fill="#2c1810"/>
+
+              <line x1="28" y1="20" x2="26" y2="16" stroke="#2c1810" strokeWidth="0.8"/>
+              <line x1="32" y1="20" x2="34" y2="16" stroke="#2c1810" strokeWidth="0.8"/>
+              <circle cx="26" cy="16" r="1" fill="#2c1810"/>
+              <circle cx="34" cy="16" r="1" fill="#2c1810"/>
+
+              <g className="wings" filter={`url(#glow${num})`}>
+                <ellipse cx="20" cy="26" rx="12" ry="8"
+                         fill={`url(#grad${num})`}
+                         className="wing wing-top-left"
+                         transform="rotate(-20 20 26)"/>
+
+                <ellipse cx="40" cy="26" rx="12" ry="8"
+                         fill={`url(#grad${num})`}
+                         className="wing wing-top-right"
+                         transform="rotate(20 40 26)"/>
+
+                <ellipse cx="22" cy="38" rx="8" ry="6"
+                         fill={`url(#grad${num})`}
+                         className="wing wing-bottom-left"
+                         transform="rotate(-10 22 38)"/>
+
+                <ellipse cx="38" cy="38" rx="8" ry="6"
+                         fill={`url(#grad${num})`}
+                         className="wing wing-bottom-right"
+                         transform="rotate(10 38 38)"/>
+              </g>
+
+              <circle cx="20" cy="26" r="2" fill="rgba(0,0,0,0.3)"/>
+              <circle cx="40" cy="26" r="2" fill="rgba(0,0,0,0.3)"/>
+              <circle cx="22" cy="38" r="1.5" fill="rgba(0,0,0,0.3)"/>
+              <circle cx="38" cy="38" r="1.5" fill="rgba(0,0,0,0.3)"/>
+            </svg>
+          </div>
+        ))}
+      </div> */}
+
       {/* Custom Cursor from Design 8 */}
       <div
         className={`custom-cursor ${isHovering ? 'hovering' : ''}`}
@@ -31,14 +91,10 @@ const HomeDesignHybrid: React.FC = () => {
         <div className="container">
           <div className="hero-content-hybrid">
             <div className="hero-text-hybrid">
-              <div className="luxury-intro">
-                <div className="luxury-line"></div>
-                <span className="luxury-label">Uzman Klinik Psikolog</span>
-              </div>
 
               <h1 className="luxury-title-hybrid">
-                Dr. Aleyna Didem
-                <span className="title-script">Aydın</span>
+                <div className="title-line">Uzm. Kl. Psk. <span className="title-script">Aleyna Didem Aydın</span></div>
+
               </h1>
 
               <p className="luxury-quote-hybrid">
@@ -86,7 +142,7 @@ const HomeDesignHybrid: React.FC = () => {
             {[
               {
                 title: 'Bireysel Terapi',
-                description: 'Anksiyete, depresyon, stres yönetimi ve kişisel gelişim alanlarında uzman desteği. Bilişsel Davranışçı Terapi (CBT) ve psikanalitik yaklaşımlarla bireysel ihtiyaçlarınıza özel terapi programları.',
+                description: 'Anksiyete, depresyon, stres yönetimi ve kişisel gelişim alanlarında uzman desteği. Bilişsel Davranışçı Terapi ve psikodinamik yaklaşımlarla bireysel ihtiyaçlarınıza özel terapi programları.',
                 methods: ['CBT', 'Psikanalitik Terapi', 'Mindfulness'],
                 duration: '50 dk seanslar',
                 approach: 'Kişiye özel program',
@@ -94,18 +150,18 @@ const HomeDesignHybrid: React.FC = () => {
               },
               {
                 title: 'Çift Terapisi',
-                description: 'İlişki sorunları, iletişim problemleri ve evlilik danışmanlığında profesyonel rehberlik. Gottman yöntemi ve Duygusal Odaklı Terapi (EFT) ile ilişki kalitesini artırma.',
-                methods: ['Gottman Yöntemi', 'EFT', 'Sistemik Terapi'],
+                description: 'İlişki sorunları, iletişim problemleri ve evlilik danışmanlığında profesyonel rehberlik. Gottman Yöntemi ve Bilişsel Davranışçı Terapi ile ilişki kalitesini artırma.',
+                methods: ['Gottman Yöntemi', 'CBT', 'Sistemik Terapi'],
                 duration: '75 dk seanslar',
                 approach: 'Çift odaklı yaklaşım',
                 color: 'var(--dark-purple)'
               },
               {
-                title: 'Travma Tedavisi',
-                description: 'PTSD, travmatik yaşantılar ve travma sonrası stres bozukluklarının tedavisinde EMDR ve Travma Odaklı CBT teknikleri ile kapsamlı iyileşme süreci.',
-                methods: ['EMDR', 'Travma Odaklı CBT', 'Somatik Terapi'],
-                duration: '60 dk seanslar',
-                approach: 'Travma-informasyonlu',
+                title: 'Ergen Terapisi',
+                description: 'Ergenlik dönemi zorluklarında özelleşmiş destek. Kimlik gelişimi, okul sorunları, arkadaş ilişkileri ve duygusal düzenleme konularında gençlere yönelik modern terapi yaklaşımları.',
+                methods: ['Ergen Odaklı CBT', 'Aile Terapisi', 'DBT Becerileri'],
+                duration: '50 dk seanslar',
+                approach: 'Gelişimsel yaklaşım',
                 color: 'var(--accent-purple)'
               },
               {
@@ -163,7 +219,6 @@ const HomeDesignHybrid: React.FC = () => {
           <div className="philosophy-content-hybrid">
 
             <div className="philosophy-intro-card">
-              <div className="intro-icon">💫</div>
               <p className="philosophy-description">
                 Her danışanın eşsiz bir birey olduğuna inanıyor, bu nedenle
                 tedavi sürecini tamamen kişiye özel olarak tasarlıyorum.
@@ -172,22 +227,6 @@ const HomeDesignHybrid: React.FC = () => {
               </p>
             </div>
 
-            <div className="philosophy-principles-grid">
-              <div className="principle-card">
-                <h4>Kanıta Dayalı Yöntemler</h4>
-                <p>Bilimsel araştırmalarla desteklenen modern terapi teknikleri</p>
-              </div>
-
-              <div className="principle-card">
-                <h4>Kişiye Özel Program</h4>
-                <p>Her bireyin ihtiyaçlarına göre özelleştirilmiş tedavi planı</p>
-              </div>
-
-              <div className="principle-card">
-                <h4>Holistic Yaklaşım</h4>
-                <p>Zihin, beden ve ruh bütünlüğünü gözeten kapsamlı destek</p>
-              </div>
-            </div>
 
             <div className="philosophy-cta">
               <Link
@@ -211,7 +250,7 @@ const HomeDesignHybrid: React.FC = () => {
           <div className="cta-content-hybrid">
             <div className="cta-badge-hybrid">Dönüşüm Zamanı</div>
             <h2>Randevu Almaya Hazır mısınız?</h2>
-            <p>İlk görüşme ücretsiz. Size en uygun terapi yaklaşımını birlikte belirleyelim.</p>
+            <p>Size en uygun terapi yaklaşımını birlikte belirleyelim.</p>
 
             <div className="cta-buttons-hybrid">
               <Link
