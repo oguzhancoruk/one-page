@@ -42,10 +42,10 @@ const About: React.FC = () => {
                 bağlamda bireysel terapi sürecinde aktif danışanlar görmekteyim.
               </p>
               <p>
-                Kişisel gelişim uzmanlığı çatısı altında yaşam koçluğu, NLP, kuantum eğitimlerimi
+                Kişisel gelişim uzmanlığı çatısı altında yaşam koçluğu, NLP ve kuantum eğitimlerini
                 Eğitimci-Sosyolog Neslihan Kuruoğlu'ndan aldım. Ayrıca Biorezonans Sağlık Hizmetlerinden
                 Psiko kinezyoloji ve Matrix inform eğitimlerini Ramazan Toy'dan almış bulunmaktayım.
-                
+
               </p>
               <p>Hâli hazırda Echo Psikoloji Enstitüsü'nde klinik psikolog olarak
               çalışmakta olup online ve yüz yüze terapi hizmetlerine devam etmekteyim.</p>
