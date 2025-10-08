@@ -74,7 +74,7 @@ const Contact: React.FC = () => {
                 <div className="method-content">
                   <h3>Telefon</h3>
                   <p></p>
-                  <span className="response-time">Hafta içi 09:00-17:00</span>
+                  <span className="response-time">Hafta içi 09:00-17:00 saatleri arasında bana ulaşabilirsiniz</span>
                 </div>
               </div>
 
