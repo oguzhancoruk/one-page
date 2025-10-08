@@ -4,14 +4,14 @@
 
 /* Hero Section */
 .about-hero {
-  padding: 4rem 0;
+  padding: 2rem 0 0 0;
 }
 
 .about-hero-content {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
-  align-items: center;
+  align-items: start;
 }
 
 .about-hero-text h1 {
@@ -61,6 +61,7 @@
 /* Story Section */
 .story-section {
   background: white;
+  padding-top: 2rem !important;
 }
 
 .story-content h2 {

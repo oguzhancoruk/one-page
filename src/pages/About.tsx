@@ -31,7 +31,7 @@ const About: React.FC = () => {
             <div className="story-text">
               <p>
                 Psikoloji alanındaki yolculuğum, insanların ruh hallerinin ve davranışlarının
-                ardındaki derinlikleri anlamaya duyduğum merakla başladı. İstanbul Kültür Üniversitesi
+                altındaki derinlikleri anlamaya duyduğum merakla başladı. İstanbul Kültür Üniversitesi
                 Psikoloji Bölümü'nden başarıyla mezun olduktan sonra, Üsküdar Üniversitesi'nde
                 Klinik Psikoloji yüksek lisansımı başarıyla tamamlamış bulunmaktayım.
               </p>
@@ -47,7 +47,7 @@ const About: React.FC = () => {
                 Psiko kinezyoloji ve Matrix inform eğitimlerini Ramazan Toy'dan almış bulunmaktayım.
                 
               </p>
-              <p>Hâli hazırda Uzman Klinik Psikolog Elif Nuhoğlu'nun kliniğinde klinik psikolog olarak
+              <p>Hâli hazırda Echo Psikoloji Enstitüsü'nde klinik psikolog olarak
               çalışmakta olup online ve yüz yüze terapi hizmetlerine devam etmekteyim.</p>
             </div>
           </div>
@@ -75,7 +75,7 @@ const About: React.FC = () => {
               <h3>Mesleki Deneyim</h3>
               <div className="credential-list">
                 <div className="credential-item">
-                  <h4>Elif Nuhoğlu Kliniği</h4>
+                  <h4>Echo Psikoloji Enstitüsü</h4>
                   <p>Klinik Psikolog (Devam Ediyor)</p>
                 </div>
                 <div className="credential-item">

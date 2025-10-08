@@ -91,7 +91,7 @@ const Contact: React.FC = () => {
                 <div className="method-icon">📍</div>
                 <div className="method-content">
                   <h3>Adres</h3>
-                  <p></p>
+                  <p>Bahçeşehir 2. Kısım, Avni Akyol Bulvarı, 34488 Başakşehir/İstanbul</p>
                   <span className="response-time">Randevu ile</span>
                 </div>
               </div>

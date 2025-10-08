@@ -51,7 +51,7 @@ const Footer: React.FC = () => {
               </div>
               <div className="contact-item">
                 <span className="contact-label">Adres:</span>
-                <span></span>
+                <span>Bahçeşehir 2. Kısım, Avni Akyol Bulvarı, 34488 Başakşehir/İstanbul</span>
               </div>
             </div>
 

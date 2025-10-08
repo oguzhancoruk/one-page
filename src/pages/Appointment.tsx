@@ -343,7 +343,6 @@ const Appointment: React.FC = () => {
             name="emergencyPhone"
             value={formData.emergencyPhone}
             onChange={handleInputChange}
-            placeholder="0555 123 45 67"
             required
           />
         </div>
