@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import './HomeDesignHybrid.css';
 
@@ -17,6 +18,11 @@ const HomeDesignHybrid: React.FC = () => {
 
   return (
     <div className="home-hybrid">
+      <Helmet>
+        <title>Aleyna Didem Aydın — Bahçeşehir Klinik Psikolog | Ergen & Yetişkin Terapi</title>
+        <meta name="description" content="Uzm. Kl. Psk. Aleyna Didem Aydın - Bahçeşehir (Esenkent, Esenyurt) bölgesinde ergen terapisi, yetişkin terapisi, çift terapisi ve BDT uygulamaları." />
+        <meta name="keywords" content="Bahçeşehir, Esenkent, Esenyurt, klinik psikolog, psikolog, terapi, terapist, danışan, psikoloji, BDT, ergen terapisi, yetişkin terapisi, terapötik ilişki, bağlanma problemleri, öfke, ayrılık, yas, yeme bozuklukları, uyku bozuklukları, depresyon, anksiyete" />
+      </Helmet>
       {/* Floating Butterflies */}
       {/* <div className="butterflies-container">
         {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((num) => (

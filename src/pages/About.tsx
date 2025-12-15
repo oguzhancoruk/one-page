@@ -1,10 +1,16 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import './About.css';
 
 const About: React.FC = () => {
   return (
     <div className="about">
+      <Helmet>
+        <title>Hakkımda — Uzman Klinik Psikolog Aleyna Didem Aydın</title>
+        <meta name="description" content="Klinik psikolog Aleyna Didem Aydın'ın eğitimleri ve uzmanlık alanları: ergen terapisi, yetişkin terapisi, bağlanma problemleri, öfke, yas, yeme ve uyku bozuklukları. Bahçeşehir, Esenyurt, Esenkent bölgesinde hizmet." />
+        <meta name="keywords" content="Bahçeşehir, Esenkent, Esenyurt, klinik psikolog, psikolog, terapi, terapist, danışan, psikoloji, BDT, ergen terapisi, yetişkin terapisi, bağlanma problemleri, öfke, ayrılık, yas, yeme bozuklukları, uyku bozuklukları, depresyon, anksiyete, Aleyna Didem Aydın" />
+      </Helmet>
       <div className="container">
         {/* Hero Section */}
         <section className="about-hero">

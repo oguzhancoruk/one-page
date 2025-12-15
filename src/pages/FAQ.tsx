@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import './FAQ.css';
 
 interface FAQItem {
@@ -70,6 +71,11 @@ const FAQ: React.FC = () => {
 
   return (
     <div className="faq">
+      <Helmet>
+        <title>Sık Sorulan Sorular — Terapi, Seanslar ve Randevu</title>
+        <meta name="description" content="Ergen terapisi, seans süresi, online terapi ve randevu hakkında sık sorulan sorular. Bahçeşehir bölgesinde uzman psikolog hizmetleri." />
+        <meta name="keywords" content="sss, sıkça sorulan sorular, terapi süresi, seanslar, randevu, online terapi, ergen terapisi, yetişkin terapisi, çift terapisi, BDT, psikolog, Bahçeşehir, Esenkent, Esenyurt" />
+      </Helmet>
       <div className="container">
         <div className="faq-header">
           <h1 className="gradient-text">Sıkça Sorulan Sorular</h1>

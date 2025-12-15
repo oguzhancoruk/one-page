@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import './Contact.css';
 
@@ -46,6 +47,11 @@ const Contact: React.FC = () => {
 
   return (
     <div className="contact">
+      <Helmet>
+        <title>İletişim & Randevu — Aleyna Didem Aydın</title>
+        <meta name="description" content="Bahçeşehir (Esenkent, Esenyurt) bölgesinde randevu ve iletişim bilgileri. Klinik psikologla online ve yüz yüze seans randevusu alın." />
+        <meta name="keywords" content="iletişim, randevu, Bahçeşehir psikolog, klinik psikolog, terapi, online terapi, yüz yüze terapi, danışmanlık, psikolog iletişim, Esenkent, Esenyurt" />
+      </Helmet>
       <div className="container">
         {/* Hero Section */}
         <section className="contact-hero">

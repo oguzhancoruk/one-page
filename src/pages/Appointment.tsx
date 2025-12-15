@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './Appointment.css';
+import { Helmet } from 'react-helmet-async';
 
 interface AppointmentForm {
   firstName: string;
@@ -422,6 +423,11 @@ const Appointment: React.FC = () => {
   if (submitSuccess) {
     return (
       <div className="appointment-page">
+        <Helmet>
+          <title>Randevu Talebiniz Alındı — Uzman Klinik Psikolog</title>
+          <meta name="description" content="Randevu talebiniz alındı. En kısa sürede dönüş yapılacaktır. Ergen terapisi, yetişkin terapisi ve online seans seçenekleri." />
+          <meta name="keywords" content="randevu talebiniz alındı, randevu talebi, başarılı, ergen terapisi, yetişkin terapisi, çift terapisi, online terapi, seans, Bahçeşehir psikolog" />
+        </Helmet>
         <div className="container">
           <div className="success-message">
             <div className="success-icon">✅</div>
@@ -468,6 +474,11 @@ const Appointment: React.FC = () => {
 
   return (
     <div className="appointment-page">
+      <Helmet>
+        <title>Randevu Al — Uzman Klinik Psikolog</title>
+        <meta name="description" content="Randevu formu: ergen terapisi, yetişkin terapisi, çift terapisi ve online seanslar için randevu talep edin." />
+        <meta name="keywords" content="randevu, randevu al, seans randevusu, ergen terapisi, yetişkin terapisi, çift terapisi, online terapi, Bahçeşehir, psikolog, klinik psikolog, terapi randevusu" />
+      </Helmet>
       <div className="container">
         <div className="appointment-header">
           <h1>Randevu Al</h1>
