@@ -89,6 +89,9 @@
 }
 
 .social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   color: rgba(255, 255, 255, 0.8);
   text-decoration: none;
   font-weight: 500;
@@ -220,12 +223,8 @@
   }
 
   .social-link {
-    width: 36px;
-    height: 36px;
-  }
-
-  .social-link span {
-    font-size: 0.95rem;
+    width: auto;
+    height: auto;
   }
 
   .footer-links a {

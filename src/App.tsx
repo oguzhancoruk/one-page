@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -14,15 +14,34 @@ import HomeDesign9 from './pages/HomeDesign9';
 import HomeDesign10 from './pages/HomeDesign10';
 import HomeDesignHybrid from './pages/HomeDesignHybrid';
 import About from './pages/About';
+import Blog from './pages/Blog';
+import BlogDetail from './pages/BlogDetail';
 import FAQ from './pages/FAQ';
 import Contact from './pages/Contact';
 import Appointment from './pages/Appointment';
-import AdminLogin from './pages/AdminLogin';
-import AdminDashboard from './pages/AdminDashboard';
+import Services from './pages/Services';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import TermsOfUse from './pages/TermsOfUse';
+import { apiService } from './services/apiService';
 import './styles/globals.css';
 
 function AppContent() {
-  const [currentDesign] = useState(11);
+  const [currentDesign, setCurrentDesign] = useState(11);
+
+  useEffect(() => {
+    const loadSettings = async () => {
+      try {
+        const settings = await apiService.getPublicSettings();
+        if (settings.activeHomeDesign) {
+          setCurrentDesign(settings.activeHomeDesign);
+        }
+      } catch {
+        setCurrentDesign(11);
+      }
+    };
+
+    loadSettings();
+  }, []);
 
   const renderHomePage = () => {
     switch (currentDesign) {
@@ -60,11 +79,14 @@ function AppContent() {
         <Routes>
           <Route path="/" element={renderHomePage()} />
           <Route path="/hakkimda" element={<About />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:postId" element={<BlogDetail />} />
+          <Route path="/hizmetler" element={<Services />} />
           <Route path="/sss" element={<FAQ />} />
           <Route path="/iletisim" element={<Contact />} />
           <Route path="/randevu" element={<Appointment />} />
-          <Route path="/admin/login" element={<AdminLogin />} />
-          <Route path="/admin/dashboard" element={<AdminDashboard />} />
+          <Route path="/gizlilik" element={<PrivacyPolicy />} />
+          <Route path="/kullanim" element={<TermsOfUse />} />
         </Routes>
       </main>
       <Footer />

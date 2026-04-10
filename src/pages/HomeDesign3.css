@@ -254,19 +254,19 @@
   background: var(--dark-purple);
 }
 
-/* Stats Dashboard */
-.stats-dashboard {
+/* Stats Summary */
+.stats-summary {
   padding: 4rem 0;
 }
 
-.dashboard-card {
+.summary-card {
   background: white;
   border-radius: 20px;
   padding: 3rem;
   box-shadow: 0 10px 40px rgba(214, 197, 228, 0.15);
 }
 
-.dashboard-card h2 {
+.summary-card h2 {
   text-align: center;
   color: var(--text-primary);
   margin-bottom: 3rem;

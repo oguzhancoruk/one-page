@@ -1,7 +1,12 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
+import {
+  defaultContactContent,
+  mergeContactContent,
+} from '../content/pageDefaults';
 import './Contact.css';
+import { apiService } from '../services/apiService';
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -11,66 +16,132 @@ const Contact: React.FC = () => {
     subject: '',
     message: '',
     preferredContact: 'email',
-    serviceType: ''
+    serviceType: '',
   });
-
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState('');
+  const [contactContent, setContactContent] = useState(defaultContactContent);
+  const [contactInfo, setContactInfo] = useState({
+    email: 'psikologaleynadidemaydin@gmail.com',
+    phone: '',
+    whatsapp: '',
+    address: 'Bahçeşehir 2. Kısım, Avni Akyol Bulvarı, 34488 Başakşehir/İstanbul',
+    workingHours: {
+      weekdays: '09:00 - 17:00',
+      saturday: 'Kapalı',
+      sunday: 'Kapalı',
+    },
+  });
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  useEffect(() => {
+    const loadPageData = async () => {
+      const [settingsResult, contentResult] = await Promise.allSettled([
+        apiService.getPublicSettings(),
+        apiService.getPublicContent('contact'),
+      ]);
+
+      if (settingsResult.status === 'fulfilled') {
+        const settings = settingsResult.value;
+        setContactInfo({
+          email: settings.email || 'psikologaleynadidemaydin@gmail.com',
+          phone: settings.phone || '',
+          whatsapp: settings.whatsapp || '',
+          address:
+            settings.address ||
+            'Bahçeşehir 2. Kısım, Avni Akyol Bulvarı, 34488 Başakşehir/İstanbul',
+          workingHours: {
+            weekdays: settings.workingHours?.weekdays || '09:00 - 17:00',
+            saturday: settings.workingHours?.saturday || 'Kapalı',
+            sunday: settings.workingHours?.sunday || 'Kapalı',
+          },
+        });
+      }
+
+      if (contentResult.status === 'fulfilled') {
+        setContactContent(mergeContactContent(contentResult.value));
+      } else {
+        setContactContent(defaultContactContent);
+      }
+    };
+
+    loadPageData();
+  }, []);
+
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setSubmitted(true);
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        subject: '',
-        message: '',
-        preferredContact: 'email',
-        serviceType: ''
+    setError('');
+
+    try {
+      if (!formData.name || !formData.email || !formData.subject || !formData.message) {
+        throw new Error('Lütfen tüm zorunlu alanları doldurunuz.');
+      }
+
+      const response = await apiService.sendContactMessage({
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        subject: formData.subject,
+        message: formData.message,
+        preferredContact: formData.preferredContact,
+        serviceType: formData.serviceType,
       });
-    }, 2000);
+
+      if (response) {
+        setSubmitted(true);
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          subject: '',
+          message: '',
+          preferredContact: 'email',
+          serviceType: '',
+        });
+      }
+    } catch (err) {
+      setError(
+        err instanceof Error
+          ? err.message
+          : 'Mesaj gönderilemedi. Lütfen tekrar deneyin.'
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
     <div className="contact">
       <Helmet>
-        <title>İletişim & Randevu — Aleyna Didem Aydın</title>
-        <meta name="description" content="Bahçeşehir (Esenkent, Esenyurt) bölgesinde randevu ve iletişim bilgileri. Klinik psikologla online ve yüz yüze seans randevusu alın." />
-        <meta name="keywords" content="iletişim, randevu, Bahçeşehir psikolog, klinik psikolog, terapi, online terapi, yüz yüze terapi, danışmanlık, psikolog iletişim, Esenkent, Esenyurt" />
+        <title>{contactContent.seo.title}</title>
+        <meta name="description" content={contactContent.seo.description} />
+        <meta name="keywords" content={contactContent.seo.keywords.join(', ')} />
       </Helmet>
       <div className="container">
-        {/* Hero Section */}
         <section className="contact-hero">
-          <h1 className="gradient-text">İletişim</h1>
-          <p className="hero-subtitle">
-            Sorularınız için bana ulaşabilir, randevu alabilir veya 
-            ücretsiz ön görüşme talep edebilirsiniz.
-          </p>
+          <h1 className="gradient-text">{contactContent.sections.hero.title}</h1>
+          <p className="hero-subtitle">{contactContent.sections.hero.subtitle}</p>
         </section>
 
         <div className="contact-content">
-          {/* Contact Info */}
           <div className="contact-info-section">
             <div className="contact-methods">
               <div className="contact-method card">
                 <div className="method-icon">📧</div>
                 <div className="method-content">
                   <h3>E-posta</h3>
-                  <p>psikologaleynadidemaydin@gmail.com</p>
+                  <p>{contactInfo.email}</p>
                   <span className="response-time">24 saat içinde yanıtlarım</span>
                 </div>
               </div>
@@ -79,8 +150,10 @@ const Contact: React.FC = () => {
                 <div className="method-icon">📱</div>
                 <div className="method-content">
                   <h3>Telefon</h3>
-                  <p></p>
-                  <span className="response-time">Hafta içi 09:00-17:00 saatleri arasında bana ulaşabilirsiniz</span>
+                  <p>{contactInfo.phone || '-'}</p>
+                  <span className="response-time">
+                    Hafta içi 09:00-17:00 saatleri arasında bana ulaşabilirsiniz
+                  </span>
                 </div>
               </div>
 
@@ -88,7 +161,7 @@ const Contact: React.FC = () => {
                 <div className="method-icon">💬</div>
                 <div className="method-content">
                   <h3>WhatsApp</h3>
-                  <p></p>
+                  <p>{contactInfo.whatsapp || '-'}</p>
                   <span className="response-time">Hızlı yanıt</span>
                 </div>
               </div>
@@ -97,7 +170,7 @@ const Contact: React.FC = () => {
                 <div className="method-icon">📍</div>
                 <div className="method-content">
                   <h3>Adres</h3>
-                  <p>Bahçeşehir 2. Kısım, Avni Akyol Bulvarı, 34488 Başakşehir/İstanbul</p>
+                  <p>{contactInfo.address}</p>
                   <span className="response-time">Randevu ile</span>
                 </div>
               </div>
@@ -108,28 +181,42 @@ const Contact: React.FC = () => {
               <div className="hours-list">
                 <div className="hour-item">
                   <span>Pazartesi - Cuma</span>
-                  <span>09:00 - 17:00</span>
+                  <span>{contactInfo.workingHours.weekdays}</span>
                 </div>
                 <div className="hour-item">
                   <span>Cumartesi</span>
-                  <span>Kapalı</span>
+                  <span>{contactInfo.workingHours.saturday}</span>
                 </div>
                 <div className="hour-item">
                   <span>Pazar</span>
-                  <span>Kapalı</span>
+                  <span>{contactInfo.workingHours.sunday}</span>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Contact Form */}
           <div className="contact-form-section">
             {!submitted ? (
               <div className="form-container card">
-                <h2>Mesaj Gönderin</h2>
-                <p>Size en kısa sürede dönüş yapabilmem için lütfen formu detaylı doldurun.</p>
-                
+                <h2>{contactContent.sections.form.title}</h2>
+                <p>{contactContent.sections.form.description}</p>
+
                 <form onSubmit={handleSubmit} className="contact-form">
+                  {error && (
+                    <div
+                      className="error-alert"
+                      style={{
+                        padding: '12px',
+                        marginBottom: '16px',
+                        backgroundColor: '#fee',
+                        border: '1px solid #fcc',
+                        borderRadius: '4px',
+                        color: '#c33',
+                      }}
+                    >
+                      ⚠️ {error}
+                    </div>
+                  )}
                   <div className="form-row">
                     <div className="form-group">
                       <label htmlFor="name">Ad Soyad *</label>
@@ -253,37 +340,36 @@ const Contact: React.FC = () => {
 
                   <div className="privacy-notice">
                     <p>
-                      * Kişisel bilgileriniz tamamen gizli tutulacak ve sadece size dönüş yapmak için kullanılacaktır. 
+                      * {contactContent.sections.form.privacyNotice}
                       <Link to="/gizlilik"> Gizlilik politikamızı</Link> okuyabilirsiniz.
                     </p>
                   </div>
 
-                  <button 
-                    type="submit" 
+                  <button
+                    type="submit"
                     className="btn btn-primary btn-large"
                     disabled={isSubmitting}
                   >
-                    {isSubmitting ? 'Gönderiliyor...' : 'Mesaj Gönder'}
+                    {isSubmitting
+                      ? contactContent.sections.form.submittingButtonText
+                      : contactContent.sections.form.submitButtonText}
                   </button>
                 </form>
               </div>
             ) : (
               <div className="success-message card">
                 <div className="success-icon">✅</div>
-                <h2>Mesajınız Alındı!</h2>
-                <p>
-                  Mesajınız başarıyla gönderildi. En kısa sürede size dönüş yapacağım.
-                  Acil durumlar için doğrudan telefon ile ulaşabilirsiniz.
-                </p>
+                <h2>{contactContent.sections.form.successTitle}</h2>
+                <p>{contactContent.sections.form.successMessage}</p>
                 <div className="success-actions">
-                  <button 
+                  <button
                     className="btn btn-secondary"
                     onClick={() => setSubmitted(false)}
                   >
-                    Yeni Mesaj Gönder
+                    {contactContent.sections.form.resetButtonText}
                   </button>
                   <Link to="/randevu" className="btn btn-primary">
-                    Randevu Al
+                    {contactContent.sections.form.appointmentButtonText}
                   </Link>
                 </div>
               </div>
@@ -291,33 +377,31 @@ const Contact: React.FC = () => {
           </div>
         </div>
 
-
-        {/* Quick Actions */}
         <section className="quick-actions section">
-          <h2 className="text-center">Hızlı İşlemler</h2>
+          <h2 className="text-center">{contactContent.sections.quickActions.title}</h2>
           <div className="quick-actions-grid">
             <Link to="/randevu" className="quick-action card">
               <div className="action-icon">📅</div>
-              <h3>Randevu Al</h3>
-              <p>Online randevu sistemi ile kolayca randevu alın</p>
+              <h3>{contactContent.sections.quickActions.appointmentTitle}</h3>
+              <p>{contactContent.sections.quickActions.appointmentDescription}</p>
             </Link>
 
             <div className="quick-action card">
               <div className="action-icon">📞</div>
-              <h3>Hemen Ara</h3>
-              <p>Acil durumlarda direkt telefon ile ulaşın</p>
+              <h3>{contactContent.sections.quickActions.callTitle}</h3>
+              <p>{contactContent.sections.quickActions.callDescription}</p>
             </div>
 
             <div className="quick-action card">
               <div className="action-icon">💬</div>
-              <h3>WhatsApp</h3>
-              <p>WhatsApp üzerinden hızlı iletişim kurun</p>
+              <h3>{contactContent.sections.quickActions.whatsappTitle}</h3>
+              <p>{contactContent.sections.quickActions.whatsappDescription}</p>
             </div>
 
             <Link to="/sss" className="quick-action card">
               <div className="action-icon">❓</div>
-              <h3>SSS</h3>
-              <p>Sık sorulan soruları inceleyin</p>
+              <h3>{contactContent.sections.quickActions.faqTitle}</h3>
+              <p>{contactContent.sections.quickActions.faqDescription}</p>
             </Link>
           </div>
         </section>

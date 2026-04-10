@@ -110,10 +110,10 @@ const HomeDesign3: React.FC = () => {
         </div>
       </section>
 
-      {/* Stats Dashboard */}
-      <section className="stats-dashboard">
+      {/* Stats Summary */}
+      <section className="stats-summary">
         <div className="container">
-          <div className="dashboard-card">
+          <div className="summary-card">
             <h2>Performans Özeti</h2>
             <div className="stats-modern-grid">
               <div className="stat-card">

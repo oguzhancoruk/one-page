@@ -26,6 +26,8 @@ const Header: React.FC = () => {
 
   const navigation = [
     { name: 'Ana Sayfa', path: '/' },
+    { name: 'Hizmetler', path: '/hizmetler' },
+    { name: 'Blog', path: '/blog' },
     { name: 'Hakkımda', path: '/hakkimda' },
     { name: 'SSS', path: '/sss' },
     { name: 'İletişim', path: '/iletisim' }

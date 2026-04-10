@@ -49,11 +49,11 @@ const HomeDesign7: React.FC = () => {
 
   return (
     <div className="home-design7">
-      {/* Dashboard Header */}
-      <section className="dashboard-header">
+      {/* Showcase Header */}
+      <section className="showcase-header">
         <div className="container">
-          <div className="header-dashboard">
-            <div className="doctor-dashboard-info">
+          <div className="header-showcase">
+            <div className="doctor-showcase-info">
               <div className="doctor-status">
                 <div className="status-indicator online"></div>
                 <span>Şu an aktif</span>
@@ -68,46 +68,46 @@ const HomeDesign7: React.FC = () => {
               </div>
             </div>
             
-            <div className="dashboard-actions">
-              <Link to="/randevu" className="btn-dashboard primary pulse">
+            <div className="showcase-actions">
+              <Link to="/randevu" className="btn-showcase primary pulse">
                 <span className="btn-icon">📅</span>
                 <span>Acil Randevu</span>
                 <div className="btn-badge">Bugün müsait</div>
               </Link>
-              <Link to="/iletisim" className="btn-dashboard secondary">
+              <Link to="/iletisim" className="btn-showcase secondary">
                 <span className="btn-icon">💬</span>
                 <span>Hızlı Mesaj</span>
               </Link>
             </div>
           </div>
           
-          <div className="live-dashboard">
-            <div className="dashboard-card live-stats">
+          <div className="live-overview">
+            <div className="overview-card live-stats">
               <div className="card-header">
                 <h3>📊 Canlı İstatistikler</h3>
                 <div className="live-indicator"></div>
               </div>
-              <div className="stats-dashboard-grid">
-                <div className="stat-dashboard">
+              <div className="stats-overview-grid">
+                <div className="stat-overview">
                   <div className="stat-value">{liveStats.onlineUsers}</div>
                   <div className="stat-label">Online Ziyaretçi</div>
                 </div>
-                <div className="stat-dashboard">
+                <div className="stat-overview">
                   <div className="stat-value">{liveStats.todayAppointments}</div>
                   <div className="stat-label">Bugünkü Randevular</div>
                 </div>
-                <div className="stat-dashboard">
+                <div className="stat-overview">
                   <div className="stat-value">{liveStats.thisWeekSessions}</div>
                   <div className="stat-label">Bu Hafta Seanslar</div>
                 </div>
-                <div className="stat-dashboard highlight">
+                <div className="stat-overview highlight">
                   <div className="stat-value">{liveStats.availableSlots}</div>
                   <div className="stat-label">Müsait Slot</div>
                 </div>
               </div>
             </div>
             
-            <div className="dashboard-card quick-access">
+            <div className="overview-card quick-access">
               <h3>⚡ Hızlı Erişim</h3>
               <div className="quick-buttons">
                 <button className="quick-btn">
@@ -135,12 +135,12 @@ const HomeDesign7: React.FC = () => {
       {/* Interactive Services */}
       <section className="interactive-services">
         <div className="container">
-          <div className="services-dashboard-header">
+          <div className="services-showcase-header">
             <h2>🔬 Tedavi Yöntemleri & Başarı Oranları</h2>
             <p>Kanıta dayalı terapi yaklaşımlarımın detaylı analizi</p>
           </div>
           
-          <div className="methods-dashboard">
+          <div className="methods-overview">
             {therapyMethods.map((method, index) => (
               <div key={index} className="method-card" style={{'--accent-color': method.color} as React.CSSProperties}>
                 <div className="method-header">
@@ -181,7 +181,7 @@ const HomeDesign7: React.FC = () => {
       {/* Tabbed Content */}
       <section className="tabbed-content">
         <div className="container">
-          <div className="tab-dashboard">
+          <div className="content-tabs-shell">
             <div className="tab-navigation">
               {['Başarı Hikayeleri', 'Tedavi Süreçleri', 'SSS', 'Blog Yazıları'].map((tab, index) => (
                 <button
@@ -197,8 +197,8 @@ const HomeDesign7: React.FC = () => {
             <div className="tab-content">
               {activeTab === 0 && (
                 <div className="success-stories-tab">
-                  <div className="stories-dashboard-grid">
-                    <div className="story-dashboard featured">
+                  <div className="stories-showcase-grid">
+                    <div className="story-showcase featured">
                       <div className="story-rating">⭐ 5.0</div>
                       <h4>"Hayatım Tamamen Değişti"</h4>
                       <p>6 aylık CBT seansları sonunda panik atak problemim tamamen çözüldü. Dr. Aydın'ın profesyonel yaklaşımı sayesinde kendimi çok güçlü hissediyorum.</p>
@@ -208,7 +208,7 @@ const HomeDesign7: React.FC = () => {
                       </div>
                     </div>
                     
-                    <div className="story-dashboard">
+                    <div className="story-showcase">
                       <div className="story-rating">⭐ 5.0</div>
                       <h4>Evliliğimizi Kurtardı</h4>
                       <p>Çift terapisi seansları ilişkimizi güçlendirdi.</p>
@@ -218,7 +218,7 @@ const HomeDesign7: React.FC = () => {
                       </div>
                     </div>
                     
-                    <div className="story-dashboard">
+                    <div className="story-showcase">
                       <div className="story-rating">⭐ 5.0</div>
                       <h4>EMDR Mucizesi</h4>
                       <p>Travmatik anılarım artık beni etkilemiyor.</p>
@@ -268,7 +268,7 @@ const HomeDesign7: React.FC = () => {
               
               {activeTab === 2 && (
                 <div className="faq-tab">
-                  <div className="faq-dashboard-grid">
+                  <div className="faq-showcase-grid">
                     <div className="faq-item">
                       <h4>❓ Terapi süreci nasıl işliyor?</h4>
                       <p>İlk görüşmede durumunuzu değerlendirip size özel tedavi planı oluşturuyoruz.</p>
@@ -291,7 +291,7 @@ const HomeDesign7: React.FC = () => {
               
               {activeTab === 3 && (
                 <div className="blog-tab">
-                  <div className="blog-dashboard-grid">
+                  <div className="blog-showcase-grid">
                     <article className="blog-card-dash featured">
                       <div className="blog-category">PSİKOLOJİ</div>
                       <h4>Anksiyete ile Başa Çıkma Teknikleri</h4>
@@ -321,16 +321,16 @@ const HomeDesign7: React.FC = () => {
         </div>
       </section>
 
-      {/* Action Dashboard */}
-      <section className="action-dashboard">
+      {/* Action Showcase */}
+      <section className="action-showcase">
         <div className="container">
-          <div className="dashboard-cta-card">
-            <div className="cta-dashboard-content">
+          <div className="showcase-cta-card">
+            <div className="cta-showcase-content">
               <div className="cta-badge">🚀 Hemen Başlayın</div>
               <h2>Daha İyi Bir Yaşam İçin İlk Adımı Atın</h2>
               <p>Profesyonel destek almak için geç kalmayın. Ücretsiz ön görüşme ile başlayalım.</p>
               
-              <div className="cta-features-dashboard">
+              <div className="cta-features-showcase">
                 <div className="cta-feature">
                   <div className="feature-icon-dash">✅</div>
                   <span>Ücretsiz ilk görüşme</span>
@@ -345,19 +345,19 @@ const HomeDesign7: React.FC = () => {
                 </div>
               </div>
               
-              <div className="cta-dashboard-actions">
-                <Link to="/randevu" className="btn-dashboard primary large">
+              <div className="cta-showcase-actions">
+                <Link to="/randevu" className="btn-showcase primary large">
                   <span>Randevu Al</span>
                   <div className="btn-arrow">→</div>
                 </Link>
-                <a href="tel:+905551234567" className="btn-dashboard secondary large">
+                <a href="tel:+905551234567" className="btn-showcase secondary large">
                   <span>Hemen Ara</span>
                   <div className="phone-icon">📞</div>
                 </a>
               </div>
             </div>
             
-            <div className="cta-dashboard-visual">
+            <div className="cta-showcase-visual">
               <div className="success-metrics">
                 <div className="metric-item">
                   <div className="metric-number">500+</div>

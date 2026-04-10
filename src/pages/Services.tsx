@@ -1,189 +1,150 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Services.css';
+import { apiService, type ServiceRecord } from '../services/apiService';
+
+interface ServiceViewModel {
+  id: string;
+  icon: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  features: string[];
+  duration: string;
+  frequency: string;
+  approach: string;
+}
+
+const mapService = (service: ServiceRecord): ServiceViewModel => ({
+  id: service.slug || service.id,
+  icon: service.icon || '🧠',
+  title: service.title,
+  subtitle: service.subtitle,
+  description: service.description,
+  features: service.features,
+  duration: service.duration,
+  frequency: service.frequency,
+  approach: service.approach,
+});
 
 const Services: React.FC = () => {
-  const services = [
-    {
-      id: 'bireysel',
-      icon: '👤',
-      title: 'Bireysel Terapi',
-      subtitle: 'Kişisel gelişim ve ruh sağlığı',
-      description: 'Bireysel terapi seanslarında, kişisel sorunlarınız için özel olarak tasarlanmış tedavi planları uyguluyorum.',
-      features: [
-        'Anksiyete ve depresyon tedavisi',
-        'Stres yönetimi teknikleri',
-        'Öz güven geliştirme',
-        'Kişisel hedef belirleme',
-        'Yaşam kalitesi artırma'
-      ],
-      duration: '50 dakika',
-      frequency: 'Haftada 1 kez',
-      approach: 'Bilişsel Davranışçı Terapi, Psikanalitik Yaklaşım'
-    },
-    {
-      id: 'cift',
-      icon: '💕',
-      title: 'Çift Terapisi',
-      subtitle: 'İlişkilerde uzlaşma ve uyum',
-      description: 'Çiftlerin iletişim sorunlarını çözmelerine ve ilişkilerini güçlendirmelerine yardımcı oluyorum.',
-      features: [
-        'İletişim becerilerini geliştirme',
-        'Çatışma çözme teknikleri',
-        'Güven inşa etme',
-        'İntimite sorunlarını ele alma',
-        'Evlilik öncesi danışmanlık'
-      ],
-      duration: '60 dakika',
-      frequency: 'Haftada 1 kez',
-      approach: 'Sistemik Aile Terapisi, Gottman Metodu'
-    },
-    {
-      id: 'travma',
-      icon: '🧠',
-      title: 'Travma Tedavisi',
-      subtitle: 'Geçmişten özgürleşme',
-      description: 'Travmatik yaşantıların iyileştirilmesi için uzman yaklaşımlar kullanıyor, EMDR terapisi uyguluyorum.',
-      features: [
-        'PTSD tedavisi',
-        'EMDR terapisi',
-        'Çocukluk travmaları',
-        'İstismar sonrası rehabilitasyon',
-        'Kayıp ve yas süreci'
-      ],
-      duration: '60-90 dakika',
-      frequency: 'Haftada 1-2 kez',
-      approach: 'EMDR, Bilişsel Davranışçı Terapi, Somatik Yaklaşım'
-    },
-    {
-      id: 'gelisim',
-      icon: '🌱',
-      title: 'Kişisel Gelişim',
-      subtitle: 'Potanselinizi keşfedin',
-      description: 'Kişisel potanselinizi keşfetmeniz ve yaşam kalitenizi artırmanız için rehberlik ediyorum.',
-      features: [
-        'Yaşam koçluğu',
-        'Kariyer danışmanlığı',
-        'Zaman yönetimi',
-        'Liderlik becerileri',
-        'Mindfulness ve meditasyon'
-      ],
-      duration: '50 dakika',
-      frequency: '2 haftada 1',
-      approach: 'Hümanistik Yaklaşım, Pozitif Psikoloji, Koçluk'
-    },
-    {
-      id: 'grup',
-      icon: '👥',
-      title: 'Grup Terapisi',
-      subtitle: 'Paylaşım ve destek',
-      description: 'Benzer sorunları yaşayan kişilerle birlikte grup ortamında terapi seansları düzenliyorum.',
-      features: [
-        'Sosyal anksiyete grupları',
-        'Yas ve kayıp grupları',
-        'Kadın destek grupları',
-        'Öfke yönetimi grupları',
-        'Mindfulness grupları'
-      ],
-      duration: '90 dakika',
-      frequency: 'Haftada 1 kez',
-      approach: 'Grup Dinamikleri, Psikodrama, Destekleyici Terapi'
-    },
-    {
-      id: 'online',
-      icon: '💻',
-      title: 'Online Terapi',
-      subtitle: 'Uzaktan profesyonel destek',
-      description: 'Güvenli video konferans platformu üzerinden online terapi seansları sunuyorum.',
-      features: [
-        'Esnek seans saatleri',
-        'Coğrafi sınır olmadan erişim',
-        'Güvenli video konferans',
-        'Dijital kaynak paylaşımı',
-        'Acil durum desteği'
-      ],
-      duration: '50 dakika',
-      frequency: 'İhtiyaca göre',
-      approach: 'Tüm terapi yaklaşımları online uygulanabilir'
-    }
-  ];
+  const [services, setServices] = useState<ServiceViewModel[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
+
+  useEffect(() => {
+    const loadServices = async () => {
+      try {
+        setLoading(true);
+        setError('');
+        const items = await apiService.getServices();
+        setServices(items.map(mapService));
+      } catch {
+        setServices([]);
+        setError('Hizmetler yüklenemedi.');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadServices();
+  }, []);
 
   return (
     <div className="services">
       <div className="container">
-        {/* Hero Section */}
         <section className="services-hero">
           <h2 className="gradient-text">Hizmetlerim</h2>
           <p className="hero-subtitle">
-            Size en uygun terapi yöntemini birlikte belirleyerek, 
-            iyileşme sürecinizde yanınızda oluyorum.
+            Size en uygun terapi yöntemini birlikte belirleyerek, iyileşme
+            sürecinizde yanınızda oluyorum.
           </p>
         </section>
 
-        {/* Services Grid */}
+        {error && (
+          <div
+            className="info-alert"
+            style={{
+              padding: '12px',
+              marginBottom: '16px',
+              backgroundColor: '#fff4e5',
+              border: '1px solid #ffd8a8',
+              borderRadius: '4px',
+              color: '#9c6500',
+            }}
+          >
+            ℹ️ {error}
+          </div>
+        )}
+
         <section className="services-grid">
-          {services.map((service) => (
-            <div key={service.id} id={service.id} className="service-detail card">
-              <div className="service-header">
-                <div className="service-icon-large">
-                  {service.icon}
-                </div>
-                <div className="service-title-section">
-                  <h2>{service.title}</h2>
-                  <p className="service-subtitle">{service.subtitle}</p>
-                </div>
-              </div>
-
-              <div className="service-content">
-                <p className="service-description">{service.description}</p>
-
-                <div className="service-features">
-                  <h3>Bu hizmette neler yapıyoruz:</h3>
-                  <ul>
-                    {service.features.map((feature, index) => (
-                      <li key={index}>{feature}</li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className="service-details-grid">
-                  <div className="detail-item">
-                    <h4>⏱️ Süre</h4>
-                    <p>{service.duration}</p>
-                  </div>
-                  <div className="detail-item">
-                    <h4>📅 Sıklık</h4>
-                    <p>{service.frequency}</p>
-                  </div>
-                  <div className="detail-item">
-                    <h4>🎯 Yaklaşım</h4>
-                    <p>{service.approach}</p>
-                  </div>
-                </div>
-
-                <div className="service-cta">
-                  <Link to="/randevu" className="btn btn-primary">
-                    Bu Hizmet için Randevu Al
-                  </Link>
-                </div>
-              </div>
+          {loading ? (
+            <div className="no-results">
+              <p>Hizmetler yükleniyor...</p>
             </div>
-          ))}
+          ) : services.length === 0 ? (
+            <div className="no-results">
+              <p>Henüz yayınlanmış hizmet bulunmuyor.</p>
+            </div>
+          ) : (
+            services.map((service) => (
+              <div key={service.id} id={service.id} className="service-detail card">
+                <div className="service-header">
+                  <div className="service-icon-large">{service.icon}</div>
+                  <div className="service-title-section">
+                    <h2>{service.title}</h2>
+                    <p className="service-subtitle">{service.subtitle}</p>
+                  </div>
+                </div>
+
+                <div className="service-content">
+                  <p className="service-description">{service.description}</p>
+
+                  <div className="service-features">
+                    <h3>Bu hizmette neler yapıyoruz:</h3>
+                    <ul>
+                      {service.features.map((feature, index) => (
+                        <li key={index}>{feature}</li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="service-details-grid">
+                    <div className="detail-item">
+                      <h4>⏱️ Süre</h4>
+                      <p>{service.duration}</p>
+                    </div>
+                    <div className="detail-item">
+                      <h4>📅 Sıklık</h4>
+                      <p>{service.frequency}</p>
+                    </div>
+                    <div className="detail-item">
+                      <h4>🎯 Yaklaşım</h4>
+                      <p>{service.approach}</p>
+                    </div>
+                  </div>
+
+                  <div className="service-cta">
+                    <Link to="/randevu" className="btn btn-primary">
+                      Bu Hizmet için Randevu Al
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            ))
+          )}
         </section>
 
-        {/* Process Section */}
-        <section className="therapy-process section ">
+        <section className="therapy-process section">
           <h2>Terapi Süreci Nasıl İşler?</h2>
           <div className="process-steps">
-          
-
             <div className="process-step">
               <div className="step-number">2</div>
               <div className="step-content">
                 <h3>Değerlendirme</h3>
                 <p>
-                  İlk seansta detaylı değerlendirme yaparak size en uygun 
-                  tedavi planını belirleriz.
+                  İlk seansta detaylı değerlendirme yaparak size en uygun tedavi
+                  planını belirleriz.
                 </p>
               </div>
             </div>
@@ -193,8 +154,8 @@ const Services: React.FC = () => {
               <div className="step-content">
                 <h3>Tedavi Planı</h3>
                 <p>
-                  Bireysel ihtiyaçlarınıza göre kişiselleştirilmiş 
-                  tedavi programı oluştururuz.
+                  Bireysel ihtiyaçlarınıza göre kişiselleştirilmiş tedavi programı
+                  oluştururuz.
                 </p>
               </div>
             </div>
@@ -204,8 +165,8 @@ const Services: React.FC = () => {
               <div className="step-content">
                 <h3>Terapi Seansları</h3>
                 <p>
-                  Düzenli seanslarla belirlediğimiz hedeflere doğru 
-                  birlikte ilerlemeye başlarız.
+                  Düzenli seanslarla belirlediğimiz hedeflere doğru birlikte
+                  ilerlemeye başlarız.
                 </p>
               </div>
             </div>
@@ -215,15 +176,13 @@ const Services: React.FC = () => {
               <div className="step-content">
                 <h3>Değerlendirme ve Sonuç</h3>
                 <p>
-                  İlerlemenizi düzenli olarak değerlendirerek terapi 
-                  sürecini başarıyla tamamlarız.
+                  İlerlemenizi düzenli olarak değerlendirerek terapi sürecini
+                  başarıyla tamamlarız.
                 </p>
               </div>
             </div>
           </div>
         </section>
-
-
       </div>
     </div>
   );

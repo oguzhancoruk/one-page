@@ -1,6 +1,5 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
-Disallow: /admin/
 
 # Sitemap URL
 Sitemap: https://www.aleynadidemaydin.com/sitemap.xml

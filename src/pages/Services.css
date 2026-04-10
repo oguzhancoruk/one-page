@@ -29,6 +29,15 @@
   margin-bottom: 4rem;
 }
 
+.no-results {
+  text-align: center;
+  padding: 3rem 2rem;
+  color: var(--text-secondary);
+  background: white;
+  border: 1px solid var(--border-light);
+  border-radius: var(--border-radius);
+}
+
 .service-detail {
   padding: 0;
   overflow: hidden;

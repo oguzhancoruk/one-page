@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './Appointment.css';
 import { Helmet } from 'react-helmet-async';
+import { apiService } from '../services/apiService';
 
 interface AppointmentForm {
   firstName: string;
@@ -49,6 +50,7 @@ const Appointment: React.FC = () => {
   const [currentStep, setCurrentStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
+  const [error, setError] = useState('');
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value, type } = e.target;
@@ -57,16 +59,46 @@ const Appointment: React.FC = () => {
       [name]: type === 'checkbox' ? (e.target as HTMLInputElement).checked : value
     }));
   };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setError('');
     
-    // Simulate API call
-    setTimeout(() => {
+    try {
+      // Validate required fields
+      if (
+        !formData.firstName ||
+        !formData.lastName ||
+        !formData.email ||
+        !formData.phone ||
+        !formData.birthDate ||
+        !formData.gender ||
+        !formData.sessionType ||
+        !formData.preferredDate ||
+        !formData.preferredTime ||
+        !formData.previousTherapy ||
+        !formData.currentMedication ||
+        !formData.concerns ||
+        !formData.emergencyContact ||
+        !formData.emergencyPhone ||
+        !formData.consent
+      ) {
+        throw new Error('Lütfen tüm zorunlu alanları doldurunuz.');
+      }
+
+      const response = await apiService.createAppointment({
+        ...formData,
+        medicationList: formData.currentMedication === 'evet' ? formData.medicationList || '' : '',
+      });
+      
+      if (response) {
+        setIsSubmitting(false);
+        setSubmitSuccess(true);
+      }
+    } catch (err) {
       setIsSubmitting(false);
-      setSubmitSuccess(true);
-    }, 2000);
+      setError(err instanceof Error ? err.message : 'Randevu oluşturulurken bir hata oluştu. Lütfen tekrar deneyin.');
+    }
   };
 
   const nextStep = () => {
@@ -459,7 +491,7 @@ const Appointment: React.FC = () => {
                   firstName: '', lastName: '', email: '', phone: '', birthDate: '',
                   gender: '', sessionType: '', preferredDate: '', preferredTime: '',
                   alternativeDate: '', alternativeTime: '', previousTherapy: '',
-                  currentMedication: '', concerns: '', emergencyContact: '',
+                  currentMedication: '', medicationList: '', concerns: '', emergencyContact: '',
                   emergencyPhone: '', howDidYouHear: '', consent: false
                 });
               }}
@@ -511,6 +543,18 @@ const Appointment: React.FC = () => {
               </div>
 
               <form onSubmit={handleSubmit} className="appointment-form">
+                {error && (
+                  <div className="error-alert" style={{ 
+                    padding: '12px', 
+                    marginBottom: '16px', 
+                    backgroundColor: '#fee', 
+                    border: '1px solid #fcc', 
+                    borderRadius: '4px',
+                    color: '#c33'
+                  }}>
+                    ⚠️ {error}
+                  </div>
+                )}
                 {currentStep === 1 && renderStep1()}
                 {currentStep === 2 && renderStep2()}
                 {currentStep === 3 && renderStep3()}
