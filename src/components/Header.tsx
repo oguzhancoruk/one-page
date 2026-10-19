@@ -56,7 +56,6 @@ const Header: React.FC = () => {
     <header ref={headerRef} className={`site-header ${isScrolled ? 'site-header--scrolled' : ''} ${isMenuOpen ? 'site-header--open' : ''}`}>
       <div className="site-header__shell">
         <Link to="/" className="site-brand" onClick={closeMenu} aria-label="Klinik Psikolog Aleyna Didem Aydın — Ana Sayfa">
-          <span className="site-brand__monogram" aria-hidden="true">a<span>.</span></span>
           <span className="site-brand__text">
             <span className="site-brand__title">Klinik Psikolog</span>
             <span className="site-brand__name">Aleyna Didem Aydın</span>
