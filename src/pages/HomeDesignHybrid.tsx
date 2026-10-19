@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
+import PortraitCarousel from '../components/PortraitCarousel';
 import {
   defaultHomeContent,
   mergeHomeContent,
 } from '../content/pageDefaults';
-import { apiService, type ServiceRecord } from '../services/apiService';
+import { apiService, resolveAssetUrl, type HomeGalleryImage, type ServiceRecord } from '../services/apiService';
 import './HomeDesignHybrid.css';
 
 const serviceColors = [
@@ -20,6 +21,7 @@ const HomeDesignHybrid: React.FC = () => {
   const [isHovering, setIsHovering] = useState(false);
   const [homeContent, setHomeContent] = useState(defaultHomeContent);
   const [services, setServices] = useState<ServiceRecord[]>([]);
+  const [gallery, setGallery] = useState<HomeGalleryImage[]>([]);
   const [servicesError, setServicesError] = useState('');
 
   useEffect(() => {
@@ -29,6 +31,20 @@ const HomeDesignHybrid: React.FC = () => {
 
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
+
+  useEffect(() => {
+    let cancelled = false;
+    const loadGallery = async () => {
+      try {
+        const images = await apiService.getHomeGallery();
+        if (!cancelled) setGallery(images);
+      } catch { /* Keep the last successfully loaded gallery. */ }
+    };
+    loadGallery();
+    const refresh = () => { if (!document.hidden) loadGallery(); };
+    window.addEventListener('focus', refresh);
+    return () => { cancelled = true; window.removeEventListener('focus', refresh); };
   }, []);
 
   useEffect(() => {
@@ -52,6 +68,8 @@ const HomeDesignHybrid: React.FC = () => {
 
     loadPageData();
   }, []);
+
+  const portraitImages = useMemo(() => gallery.map(image => ({ ...image, src: resolveAssetUrl(image.imageUrl) })), [gallery]);
 
   return (
     <div className="home-hybrid">
@@ -107,7 +125,7 @@ const HomeDesignHybrid: React.FC = () => {
             </div>
 
             <div className="hero-visual-hybrid">
-              <div className="doctor-image-luxury"></div>
+              <PortraitCarousel images={portraitImages} />
             </div>
           </div>
         </div>

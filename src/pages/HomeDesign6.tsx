@@ -20,7 +20,7 @@ const HomeDesign6: React.FC = () => {
                   <div className="author-photo"></div>
                   <div className="author-details">
                     <span className="author-name">Dr. Aleyna Didem Aydın</span>
-                    <span className="author-title">Uzman Klinik Psikolog</span>
+                    <span className="author-title">Klinik Psikolog</span>
                     <div className="story-stats">
                       <span>📚 500+ Başarılı Terapi</span>
                       <span>⭐ 10 Yıl Deneyim</span>

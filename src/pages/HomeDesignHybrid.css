@@ -341,18 +341,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.doctor-image-luxury {
-  width: 400px;
-  height: 500px;
-  background-image: url('../data/ana.jpeg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  border-radius: 20px;
-  position: relative;
-  box-shadow: 0 20px 60px rgba(214, 197, 228, 0.2);
+  min-width: 0;
 }
 
 /* Section Headers */

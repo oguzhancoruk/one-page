@@ -146,7 +146,7 @@ export interface ContactContentSections {
 export const defaultHomeContent = {
   sections: {
     hero: {
-      titlePrefix: 'Uzm. Kl. Psk.',
+      titlePrefix: 'Klinik Psikolog',
       titleHighlight: 'Aleyna Didem Aydın',
       quote:
         'Her bireyin kendine özgü bir hikayesi vardır. Bu hikayenin en güzel halini birlikte keşfedelim.',
@@ -178,7 +178,7 @@ export const defaultHomeContent = {
   seo: {
     title: 'Aleyna Didem Aydın — Bahçeşehir Klinik Psikolog | Ergen ve Yetişkin Terapi',
     description:
-      'Uzm. Kl. Psk. Aleyna Didem Aydın - Bahçeşehir bölgesinde ergen terapisi, yetişkin terapisi, çift terapisi ve BDT uygulamaları.',
+      'Klinik Psikolog Aleyna Didem Aydın - Bahçeşehir bölgesinde ergen terapisi, yetişkin terapisi, çift terapisi ve BDT uygulamaları.',
     keywords: [
       'Bahçeşehir',
       'klinik psikolog',
@@ -196,7 +196,7 @@ export const defaultHomeContent = {
 export const defaultAboutContent = {
   sections: {
     hero: {
-      title: 'Uzm. Kl. Psk. Aleyna Didem Aydın',
+      title: 'Klinik Psikolog Aleyna Didem Aydın',
       subtitle: 'Klinik psikolog ve psikoterapist',
       intro:
         'Bireylerin ruh sağlığı yolculuğunda rehberlik ediyor, herkesin potansiyelini keşfetmesine yardımcı oluyorum.',
@@ -317,7 +317,7 @@ export const defaultAboutContent = {
     },
   } satisfies AboutContentSections,
   seo: {
-    title: 'Hakkımda — Uzman Klinik Psikolog Aleyna Didem Aydın',
+    title: 'Hakkımda — Klinik Psikolog Aleyna Didem Aydın',
     description:
       'Klinik psikolog Aleyna Didem Aydın’ın eğitimleri, uzmanlık alanları ve terapi yaklaşımı hakkında bilgi alın.',
     keywords: [
@@ -334,7 +334,7 @@ export const defaultAboutContent = {
 export const defaultFooterContent = {
   sections: {
     brand: {
-      title: 'Uzm. Kl. Psk. Aleyna Didem Aydın',
+      title: 'Klinik Psikolog Aleyna Didem Aydın',
       description:
         'Ruh sağlığınız için güvenilir ve profesyonel psikolojik destek. Her bireyin eşsiz olduğuna inanıyor, kişiselleştirilmiş terapi yaklaşımları sunuyorum.',
     },

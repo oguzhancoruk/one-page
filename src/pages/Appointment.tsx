@@ -456,7 +456,7 @@ const Appointment: React.FC = () => {
     return (
       <div className="appointment-page">
         <Helmet>
-          <title>Randevu Talebiniz Alındı — Uzman Klinik Psikolog</title>
+          <title>Randevu Talebiniz Alındı — Klinik Psikolog</title>
           <meta name="description" content="Randevu talebiniz alındı. En kısa sürede dönüş yapılacaktır. Ergen terapisi, yetişkin terapisi ve online seans seçenekleri." />
           <meta name="keywords" content="randevu talebiniz alındı, randevu talebi, başarılı, ergen terapisi, yetişkin terapisi, çift terapisi, online terapi, seans, Bahçeşehir psikolog" />
         </Helmet>
@@ -507,14 +507,14 @@ const Appointment: React.FC = () => {
   return (
     <div className="appointment-page">
       <Helmet>
-        <title>Randevu Al — Uzman Klinik Psikolog</title>
+        <title>Randevu Al — Klinik Psikolog</title>
         <meta name="description" content="Randevu formu: ergen terapisi, yetişkin terapisi, çift terapisi ve online seanslar için randevu talep edin." />
         <meta name="keywords" content="randevu, randevu al, seans randevusu, ergen terapisi, yetişkin terapisi, çift terapisi, online terapi, Bahçeşehir, psikolog, klinik psikolog, terapi randevusu" />
       </Helmet>
       <div className="container">
         <div className="appointment-header">
           <h1>Randevu Al</h1>
-          <p>Uzm. Kl. Psk. Aleyna Didem Aydın ile profesyonel psikolojik destek almak için randevu talebinde bulunun.</p>
+          <p>Klinik Psikolog Aleyna Didem Aydın ile profesyonel psikolojik destek almak için randevu talebinde bulunun.</p>
         </div>
 
         <div className="appointment-main-content">

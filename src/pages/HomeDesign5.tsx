@@ -15,7 +15,7 @@ const HomeDesign5: React.FC = () => {
                 <span className="badge-name">Aleyna Didem Aydın</span>
               </div>
               <div className="medical-titles">
-                <span>Uzman Klinik Psikolog</span>
+                <span>Klinik Psikolog</span>
                 <span>•</span>
                 <span>TPD Üyesi</span>
                 <span>•</span>

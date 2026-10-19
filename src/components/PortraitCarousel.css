@@ -1,0 +1,174 @@
+.portrait-carousel {
+  width: 100%;
+  max-width: 520px;
+  container-type: inline-size;
+  min-width: 0;
+}
+
+.portrait-carousel__stack {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 520 / 560;
+  isolation: isolate;
+  touch-action: pan-y;
+}
+
+.portrait-carousel__card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: calc(100% - 120px);
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: 20px;
+  background: #e9e6e9;
+  box-shadow: 0 20px 60px rgba(112, 77, 136, 0.14);
+  transition: transform 850ms cubic-bezier(0.22, 1, 0.36, 1),
+    filter 850ms ease, box-shadow 850ms ease, opacity 850ms ease;
+}
+
+.portrait-carousel__card img {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  user-select: none;
+}
+
+.portrait-carousel__card--contain {
+  background-size: cover;
+  background-position: center;
+}
+
+.portrait-carousel__card--contain::before {
+  content: '';
+  position: absolute;
+  inset: -24px;
+  background-image: inherit;
+  background-size: cover;
+  background-position: center;
+  filter: blur(18px) brightness(0.7);
+}
+
+.portrait-carousel__card--hidden {
+  z-index: 0;
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.84);
+  pointer-events: none;
+}
+
+.portrait-carousel__card--front {
+  z-index: 3;
+  transform: translate(-50%, -50%);
+  filter: brightness(1);
+  box-shadow: 0 24px 64px rgba(112, 77, 136, 0.2);
+}
+
+.portrait-carousel__card--right {
+  z-index: 2;
+  transform: translate(-50%, -50%) translateX(56px) scale(0.9) rotate(7deg);
+  filter: brightness(0.94);
+}
+
+.portrait-carousel__card--left {
+  z-index: 1;
+  transform: translate(-50%, -50%) translateX(-56px) scale(0.9) rotate(-7deg);
+  filter: brightness(0.94);
+}
+
+.portrait-carousel__controls {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-top: 4px;
+}
+
+.portrait-carousel__arrow,
+.portrait-carousel__dot {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid rgba(163, 126, 185, 0.2);
+  border-radius: 50%;
+  background: #fff;
+  color: #836095;
+  cursor: pointer;
+  transition: background-color 180ms ease, color 180ms ease;
+}
+
+.portrait-carousel__arrow:hover {
+  background: #f0e9f5;
+  color: #603e73;
+}
+
+.portrait-carousel button:focus-visible {
+  outline: 2px solid #836095;
+  outline-offset: 4px;
+}
+
+.portrait-carousel__arrow svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.portrait-carousel__dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 1 242px;
+  min-width: 0;
+}
+
+.portrait-carousel__dot {
+  flex: 1 1 22px;
+  min-width: 0;
+  max-width: 22px;
+  width: 22px;
+  border: none;
+  background: transparent;
+}
+
+.portrait-carousel__dot::before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #ddd1e5;
+  transition: width 250ms ease, background-color 250ms ease;
+}
+
+.portrait-carousel__dot[aria-current='true']::before {
+  width: 18px;
+  border-radius: 10px;
+  background: #9a77b0;
+}
+
+@container (max-width: 460px) {
+  .portrait-carousel__card { width: calc(100% - 88px); }
+  .portrait-carousel__card--right { transform: translate(-50%, -50%) translateX(36px) scale(0.9) rotate(6deg); }
+  .portrait-carousel__card--left { transform: translate(-50%, -50%) translateX(-36px) scale(0.9) rotate(-6deg); }
+  .portrait-carousel__controls { gap: 8px; }
+}
+
+@media (max-width: 768px) {
+  .portrait-carousel { max-width: 460px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portrait-carousel *,
+  .portrait-carousel *::before {
+    transition: none;
+  }
+}

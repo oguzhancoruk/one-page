@@ -1,6 +1,10 @@
 const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000/api';
 const API_ORIGIN = API_BASE_URL.replace(/\/api\/?$/, '');
 
+export interface HomeGalleryImage {
+  id: string; imageUrl: string; alt: string; position: string; fit: 'cover' | 'contain';
+}
+
 export type PageKey = 'home' | 'about' | 'contact' | 'footer';
 
 export interface AppointmentPayload {
@@ -151,6 +155,7 @@ async function request<T>(path: string, options: RequestInit = {}): Promise<T> {
 }
 
 export const apiService = {
+  async getHomeGallery() { return request<HomeGalleryImage[]>('/home-gallery', { cache: 'no-store' }); },
   async createAppointment(appointmentData: AppointmentPayload) {
     return request<{ message: string; id: string }>('/appointments', {
       method: 'POST',

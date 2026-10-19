@@ -78,7 +78,7 @@ const HomeDesign10: React.FC = () => {
                 </div>
                 
                 <div className="profile-bio">
-                  <p>🧠 Uzman Klinik Psikolog | 💜 EMDR Sertifikalı</p>
+                  <p>🧠 Klinik Psikolog | 💜 EMDR Sertifikalı</p>
                   <p>✨ 500+ başarılı terapi | 📍 İstanbul</p>
                   <p>💌 Hayatınızı değiştirecek ilk adımı atın!</p>
                 </div>

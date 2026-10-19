@@ -60,7 +60,7 @@ const HomeDesign7: React.FC = () => {
               </div>
               <h1>Dr. Aleyna Didem Aydın</h1>
               <div className="doctor-credentials-dash">
-                <span className="credential">Uzman Klinik Psikolog</span>
+                <span className="credential">Klinik Psikolog</span>
                 <span className="separator">•</span>
                 <span className="credential">TPD Üyesi</span>
                 <span className="separator">•</span>

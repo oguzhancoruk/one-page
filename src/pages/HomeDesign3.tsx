@@ -14,7 +14,7 @@ const HomeDesign3: React.FC = () => {
                 <div className="doctor-avatar"></div>
                 <div className="doctor-details">
                   <h1>Dr. Aleyna Didem Aydın</h1>
-                  <p className="title">Uzman Klinik Psikolog</p>
+                  <p className="title">Klinik Psikolog</p>
                   <div className="rating">
                     <span className="stars">★★★★★</span>
                     <span className="rating-text">4.9/5 (127 değerlendirme)</span>

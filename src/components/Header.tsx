@@ -39,7 +39,7 @@ const Header: React.FC = () => {
         <div className="header-content">
           <Link to="/" className="logo" onClick={closeMenu}>
             <div className="logo-content">
-              <span className="title">Uzm. Kl. Psk.</span>
+              <span className="title">Klinik Psikolog</span>
               <h3 className="gradient-text">Aleyna Didem Aydın</h3>
             </div>
           </Link>

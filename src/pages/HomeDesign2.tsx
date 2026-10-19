@@ -10,7 +10,7 @@ const HomeDesign2: React.FC = () => {
         <div className="container">
           <div className="hero-wrapper">
             <div className="hero-badge">
-              <span>Dr. Aleyna Didem Aydın - Uzman Klinik Psikolog</span>
+              <span>Dr. Aleyna Didem Aydın - Klinik Psikolog</span>
             </div>
             
             <h1 className="hero-main-title">
