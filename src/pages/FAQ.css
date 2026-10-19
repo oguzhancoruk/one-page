@@ -1,5 +1,5 @@
 .faq {
-  padding: 6rem 0 4rem;
+  padding: 128px 0 4rem;
   min-height: 100vh;
 }
 
@@ -170,7 +170,7 @@
 
 @media (max-width: 768px) {
   .faq {
-    padding: 5rem 0 3rem;
+    padding: 112px 0 3rem;
   }
 
   .faq-header h1 {
@@ -209,7 +209,7 @@
 
 @media (max-width: 480px) {
   .faq {
-    padding: 4rem 0 2rem;
+    padding: 112px 0 2rem;
   }
 
   .faq-header h1 {

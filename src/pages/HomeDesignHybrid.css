@@ -160,6 +160,7 @@
 /* Hero Section - Luxury fonts from Design 4 with Design 1 simplicity */
 .hero-hybrid {
   min-height: 100vh;
+  padding: 128px 0 48px;
   background: linear-gradient(135deg, #ffffff 0%, #faf9fc 100%);
   display: flex;
   align-items: center;
@@ -767,6 +768,10 @@
 
 
 @media (max-width: 768px) {
+  .hero-hybrid {
+    padding-top: 120px;
+  }
+
   .hero-content-hybrid {
     grid-template-columns: 1fr;
     gap: 48px;

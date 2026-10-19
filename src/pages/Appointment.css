@@ -2,7 +2,7 @@
 .appointment-page {
   min-height: 100vh;
   background: linear-gradient(135deg, #f5f2f8 0%, #e8dff0 100%);
-  padding: 6rem 0 2rem 0;
+  padding: 128px 0 2rem;
 }
 
 .appointment-header {
@@ -208,7 +208,7 @@
 
 @media (max-width: 768px) {
   .appointment-page {
-    padding: 4rem 0 2rem 0;
+    padding: 112px 0 2rem;
   }
 
   .appointment-sidebar {
@@ -623,7 +623,7 @@
 /* Responsive Design */
 @media (max-width: 768px) {
   .appointment-page {
-    padding: 1rem 0;
+    padding: 112px 0 1rem;
   }
   
   .appointment-header h1 {
