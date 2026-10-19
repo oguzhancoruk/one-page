@@ -2,7 +2,7 @@ const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000/api
 const API_ORIGIN = API_BASE_URL.replace(/\/api\/?$/, '');
 
 export interface HomeGalleryImage {
-  id: string; imageUrl: string; alt: string; position: string; fit: 'cover' | 'contain';
+  id: string; imageUrl: string; alt: string; position: string; type?: 'image' | 'video'; fit: 'cover' | 'contain';
 }
 
 export type PageKey = 'home' | 'about' | 'contact' | 'footer';

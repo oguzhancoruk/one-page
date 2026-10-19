@@ -27,7 +27,8 @@
     filter 850ms ease, box-shadow 850ms ease, opacity 850ms ease;
 }
 
-.portrait-carousel__card img {
+.portrait-carousel__card img,
+.portrait-carousel__card video {
   position: relative;
   display: block;
   width: 100%;
@@ -172,3 +173,6 @@
     transition: none;
   }
 }
+
+.portrait-carousel__card--video { background: #111318; }
+.portrait-carousel__video-error { position: absolute; inset: 0; display: flex; align-items: center; padding: 24px; background: #161920; color: #fff; font: 14px/1.6 sans-serif; }
