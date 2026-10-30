@@ -17,10 +17,15 @@
 .about-hero-text h1 {
   font-size: 2rem;
   margin-bottom: 0.5rem;
+  text-align: left;
 }
 
 .about-hero-title-line {
   display: block;
+}
+
+.about-hero-title-line--name {
+  margin-inline-start: var(--about-name-offset, 0px);
 }
 
 .subtitle {
@@ -471,7 +476,7 @@
 
 @media (max-width: 480px) {
   .about-hero-text h1 {
-    font-size: 2rem;
+    font-size: clamp(1rem, 5.7vw, 1.625rem);
   }
 
   .section {

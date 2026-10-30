@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import {
@@ -10,8 +10,28 @@ import './About.css';
 
 const About: React.FC = () => {
   const [aboutContent, setAboutContent] = useState(defaultAboutContent);
+  const headingRef = useRef<HTMLHeadingElement>(null);
+  const professionRef = useRef<HTMLSpanElement>(null);
   const heroTitle = aboutContent.sections.hero.title.trim();
-  const heroTitleParts = heroTitle.match(/^(Klinik\s+Psikolog)\s+(.+)$/i);
+  const heroTitleParts = heroTitle.match(/^(Klinik)\s+(Psikolog)\s+(.+)$/i);
+
+  useLayoutEffect(() => {
+    const heading = headingRef.current;
+    const profession = professionRef.current;
+    if (!heading || !profession) return;
+
+    const alignName = () => {
+      const headingBox = heading.getBoundingClientRect();
+      const professionBox = profession.getBoundingClientRect();
+      const offset = professionBox.left - headingBox.left + professionBox.width / 2;
+      heading.style.setProperty('--about-name-offset', `${offset}px`);
+    };
+    alignName();
+    const observer = new ResizeObserver(alignName);
+    observer.observe(heading);
+    observer.observe(profession);
+    return () => observer.disconnect();
+  }, [heroTitle]);
 
   useEffect(() => {
     const loadAboutContent = async () => {
@@ -37,11 +57,11 @@ const About: React.FC = () => {
         <section className="about-hero">
           <div className="about-hero-content">
             <div className="about-hero-text">
-              <h1 className="gradient-text">
+              <h1 ref={headingRef} className="gradient-text">
                 {heroTitleParts ? (
                   <>
-                    <span className="about-hero-title-line">{heroTitleParts[1]}</span>{' '}
-                    <span className="about-hero-title-line">{heroTitleParts[2]}</span>
+                    <span className="about-hero-title-line">{heroTitleParts[1]} <span ref={professionRef}>{heroTitleParts[2]}</span></span>{' '}
+                    <span className="about-hero-title-line about-hero-title-line--name">{heroTitleParts[3]}</span>
                   </>
                 ) : heroTitle}
               </h1>
