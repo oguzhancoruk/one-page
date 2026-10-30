@@ -10,6 +10,8 @@ import './About.css';
 
 const About: React.FC = () => {
   const [aboutContent, setAboutContent] = useState(defaultAboutContent);
+  const heroTitle = aboutContent.sections.hero.title.trim();
+  const heroTitleParts = heroTitle.match(/^(Klinik\s+Psikolog)\s+(.+)$/i);
 
   useEffect(() => {
     const loadAboutContent = async () => {
@@ -35,7 +37,14 @@ const About: React.FC = () => {
         <section className="about-hero">
           <div className="about-hero-content">
             <div className="about-hero-text">
-              <h1 className="gradient-text">{aboutContent.sections.hero.title}</h1>
+              <h1 className="gradient-text">
+                {heroTitleParts ? (
+                  <>
+                    <span className="about-hero-title-line">{heroTitleParts[1]}</span>{' '}
+                    <span className="about-hero-title-line">{heroTitleParts[2]}</span>
+                  </>
+                ) : heroTitle}
+              </h1>
               <p className="subtitle">{aboutContent.sections.hero.subtitle}</p>
               <p className="intro-text">{aboutContent.sections.hero.intro}</p>
             </div>

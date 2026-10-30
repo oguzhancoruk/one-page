@@ -11,12 +11,16 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
-  align-items: center;
+  align-items: start;
 }
 
 .about-hero-text h1 {
   font-size: 2rem;
   margin-bottom: 0.5rem;
+}
+
+.about-hero-title-line {
+  display: block;
 }
 
 .subtitle {
@@ -349,8 +353,13 @@
 
   .about-hero-image {
     order: -1;
+    width: 100%;
     max-width: 350px;
     margin: 0 auto;
+  }
+
+  .about-hero-image .hero-image-placeholder {
+    width: 100%;
   }
 
   .credentials {
