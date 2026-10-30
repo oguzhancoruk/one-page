@@ -11,7 +11,6 @@ interface BlogDetailViewModel {
   content: string;
   coverImage: string;
   category: string;
-  author: string;
   date: string;
   readTime: number;
   tags: string[];
@@ -24,7 +23,6 @@ const mapApiPost = (post: BlogPostRecord): BlogDetailViewModel => ({
   content: post.content,
   coverImage: post.coverImage || '',
   category: post.category || 'Genel',
-  author: post.authorName || 'Dr. Aleyna Didem Aydın',
   date: post.publishedAt || post.createdAt,
   readTime: Number(post.readTime || 5),
   tags: post.tags || [],
@@ -113,17 +111,15 @@ const BlogDetail: React.FC = () => {
             </div>
           )}
 
-          <div className="blog-detail-author">
-            <strong>{post.author}</strong>
-          </div>
-
-          <div className="blog-detail-tags">
-            {post.tags.map((tag) => (
-              <span key={tag} className="tag">
-                #{tag}
-              </span>
-            ))}
-          </div>
+          {post.tags.length > 0 && (
+            <div className="blog-detail-tags">
+              {post.tags.map((tag) => (
+                <span key={tag} className="tag">
+                  #{tag}
+                </span>
+              ))}
+            </div>
+          )}
 
           <div className="blog-detail-content">
             {post.content

@@ -13,7 +13,6 @@ interface BlogPostData {
   date: string;
   readTime: number;
   tags: string[];
-  author: string;
 }
 
 const mapPost = (post: BlogPostRecord): BlogPostData => ({
@@ -26,7 +25,6 @@ const mapPost = (post: BlogPostRecord): BlogPostData => ({
   date: post.publishedAt || post.createdAt,
   readTime: Number(post.readTime || 5),
   tags: post.tags || [],
-  author: post.authorName || 'Dr. Aleyna Didem Aydın',
 });
 
 const Blog: React.FC = () => {
@@ -227,7 +225,6 @@ const Blog: React.FC = () => {
                         </div>
 
                         <div className="card-footer">
-                          <span className="author">{post.author}</span>
                           <Link to={`/blog/${post.id}`} className="read-more">
                             Devamını Oku →
                           </Link>

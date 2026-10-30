@@ -55,11 +55,6 @@
   object-fit: cover;
 }
 
-.blog-detail-author {
-  margin-bottom: 1rem;
-  color: var(--text-secondary);
-}
-
 .blog-detail-tags {
   display: flex;
   gap: 0.5rem;
