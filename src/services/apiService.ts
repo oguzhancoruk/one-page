@@ -5,7 +5,7 @@ export interface HomeGalleryImage {
   id: string; imageUrl: string; alt: string; position: string; type?: 'image' | 'video'; fit: 'cover' | 'contain';
 }
 
-export type PageKey = 'home' | 'about' | 'contact' | 'footer';
+export type PageKey = 'home' | 'about' | 'contact' | 'footer' | 'blog';
 
 export interface AppointmentPayload {
   firstName: string;

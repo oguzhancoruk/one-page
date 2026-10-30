@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet-async';
+import { defaultBlogContent, mergeBlogContent } from '../content/pageDefaults';
 import { Link } from 'react-router-dom';
 import './Blog.css';
 import { apiService, resolveAssetUrl, type BlogPostRecord } from '../services/apiService';
@@ -28,11 +30,20 @@ const mapPost = (post: BlogPostRecord): BlogPostData => ({
 });
 
 const Blog: React.FC = () => {
+  const [blogContent, setBlogContent] = useState(defaultBlogContent);
   const [selectedCategory, setSelectedCategory] = useState('Tümü');
   const [searchTerm, setSearchTerm] = useState('');
   const [blogPosts, setBlogPosts] = useState<BlogPostData[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+
+  useEffect(() => {
+    let cancelled = false;
+    apiService.getPublicContent('blog')
+      .then(content => { if (!cancelled) setBlogContent(mergeBlogContent(content)); })
+      .catch(() => { /* Keep the default copy if content is temporarily unavailable. */ });
+    return () => { cancelled = true; };
+  }, []);
 
   useEffect(() => {
     const loadBlogPosts = async () => {
@@ -79,13 +90,15 @@ const Blog: React.FC = () => {
 
   return (
     <div className="blog">
+      <Helmet>
+        <title>{blogContent.seo.title}</title>
+        <meta name="description" content={blogContent.seo.description} />
+        <meta name="keywords" content={blogContent.seo.keywords.join(', ')} />
+      </Helmet>
       <div className="container">
         <section className="blog-hero">
-          <h2 className="gradient-text">Blog</h2>
-          <p className="hero-subtitle">
-            Ruh sağlığı, kişisel gelişim ve yaşam kalitesi hakkında yazılarım.
-            Size fayda sağlayacak pratik öneriler ve uzman görüşleri.
-          </p>
+          <h2 className="gradient-text">{blogContent.sections.hero.title}</h2>
+          <p className="hero-subtitle">{blogContent.sections.hero.subtitle}</p>
         </section>
 
         {error && (

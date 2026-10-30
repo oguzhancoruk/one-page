@@ -605,3 +605,31 @@ export const mergeContactContent = (value?: { sections?: unknown; seo?: unknown 
     seo: mergeSeo(value?.seo, defaultContactContent.seo),
   };
 };
+
+
+export const defaultBlogContent = {
+  sections: {
+    hero: {
+      title: 'Blog',
+      subtitle: 'Ruh sağlığı, kişisel gelişim ve yaşam kalitesi hakkında yazılarım. Size fayda sağlayacak pratik öneriler ve uzman görüşleri.',
+    },
+  },
+  seo: {
+    title: 'Blog — Aleyna Didem Aydın',
+    description: 'Ruh sağlığı, kişisel gelişim ve yaşam kalitesi hakkında yazılarım. Size fayda sağlayacak pratik öneriler ve uzman görüşleri.',
+    keywords: [] as string[],
+  } satisfies PageSeo,
+};
+
+export const mergeBlogContent = (value?: { sections?: unknown; seo?: unknown } | null) => {
+  const hero = asRecord(asRecord(value?.sections).hero);
+  return {
+    sections: {
+      hero: {
+        title: typeof hero.title === 'string' ? hero.title : defaultBlogContent.sections.hero.title,
+        subtitle: typeof hero.subtitle === 'string' ? hero.subtitle : defaultBlogContent.sections.hero.subtitle,
+      },
+    },
+    seo: mergeSeo(value?.seo, defaultBlogContent.seo),
+  };
+};
