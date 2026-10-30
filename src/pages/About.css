@@ -28,13 +28,6 @@
   margin-inline-start: var(--about-name-offset, 0px);
 }
 
-.subtitle {
-  color: var(--primary-purple);
-  font-size: 1.125rem;
-  font-weight: 600;
-  margin-bottom: 1.25rem;
-}
-
 .intro-text {
   font-size: 1.05rem;
   color: var(--text-secondary);
@@ -404,10 +397,6 @@
 
   .about-hero-text h1 {
     font-size: 2rem;
-  }
-
-  .subtitle {
-    font-size: 1rem;
   }
 
   .intro-text {

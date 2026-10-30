@@ -65,7 +65,6 @@ const About: React.FC = () => {
                   </>
                 ) : heroTitle}
               </h1>
-              <p className="subtitle">{aboutContent.sections.hero.subtitle}</p>
               <p className="intro-text">{aboutContent.sections.hero.intro}</p>
             </div>
             <div className="about-hero-image">
