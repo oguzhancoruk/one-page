@@ -33,8 +33,8 @@
 
 .about-hero-title-line--name {
   margin-inline-start: var(--about-name-offset, 0px);
-  color: #111;
-  -webkit-text-fill-color: #111;
+  color: #373043;
+  -webkit-text-fill-color: #373043;
 }
 
 .about-hero-text > .intro-text {
