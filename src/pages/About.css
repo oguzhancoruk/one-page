@@ -14,10 +14,17 @@
   align-items: start;
 }
 
+.about-hero-text {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  align-self: stretch;
+}
+
 .about-hero-text h1 {
   font-size: 2rem;
   margin-bottom: 0.5rem;
   text-align: left;
+  align-self: start;
 }
 
 .about-hero-title-line {
@@ -26,6 +33,13 @@
 
 .about-hero-title-line--name {
   margin-inline-start: var(--about-name-offset, 0px);
+  color: #111;
+  -webkit-text-fill-color: #111;
+}
+
+.about-hero-text > .intro-text {
+  align-self: start;
+  margin: 0;
 }
 
 .intro-text {
@@ -343,6 +357,14 @@
 
 /* Responsive Design */
 @media (max-width: 1024px) {
+  .about-hero-text {
+    display: block;
+  }
+
+  .about-hero-text > .intro-text {
+    margin-top: 20px;
+  }
+
   .about-hero-content {
     grid-template-columns: 1fr;
     gap: 3rem;
